@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邻宠到家 | 社区宠物服务平台</title>
+  <style>
+    :root {
+      --ink: #21302f;
+      --muted: #60706c;
+      --line: #dce7e1;
+      --paper: #fffdf8;
+      --panel: #ffffff;
+      --teal: #0d8b7f;
+      --teal-deep: #075f58;
+      --mint: #dff4ec;
+      --coral: #f37b62;
+      --yellow: #ffd166;
+      --green: #7abf66;
+      --shadow: 0 22px 70px rgba(24, 58, 53, .13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 253, 248, .88);
+      border-bottom: 1px solid rgba(220, 231, 225, .8);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--teal-deep);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--coral));
+      box-shadow: 0 10px 28px rgba(13, 139, 127, .22);
+    }
+
+    .brand-mark svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal-deep);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 44px;
+      border: 0;
+      border-radius: 8px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--teal);
+      box-shadow: 0 12px 30px rgba(13, 139, 127, .24);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-deep);
+    }
+
+    .btn-ghost {
+      color: var(--teal-deep);
+      background: #edf8f4;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 248, .98) 0%, rgba(255, 253, 248, .88) 38%, rgba(255, 253, 248, .18) 68%),
+        url("assets/hero-pets.png") center right / cover no-repeat;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(320px, 560px) minmax(300px, 1fr);
+      gap: 36px;
+      padding: 72px 0 82px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      background: rgba(13, 139, 127, .1);
+      color: var(--teal-deep);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      max-width: 620px;
+    }
+
+    .lead {
+      max-width: 520px;
+      margin: 22px 0 30px;
+      color: #52645f;
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 560px;
+    }
+
+    .trust-item {
+      min-height: 82px;
+      padding: 14px;
+      border: 1px solid rgba(220, 231, 225, .92);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 12px 36px rgba(24, 58, 53, .08);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--teal-deep);
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .booking-panel {
+      align-self: end;
+      justify-self: end;
+      width: min(430px, 100%);
+      margin-top: 230px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .65);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .booking-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .booking-title h2 {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    .status-pill {
+      padding: 5px 9px;
+      border-radius: 8px;
+      color: var(--teal-deep);
+      background: var(--mint);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .service-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tab {
+      min-height: 50px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .tab.active {
+      color: #fff;
+      border-color: var(--teal);
+      background: var(--teal);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .field {
+      display: grid;
+      gap: 5px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 12px;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(13, 139, 127, .12);
+    }
+
+    .inline-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .quote-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f7fbf8;
+      border: 1px solid var(--line);
+    }
+
+    .quote-row span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quote-row strong {
+      color: var(--coral);
+      font-size: 24px;
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.12;
+    }
+
+    .section-head p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      background: #f6fbf8;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card,
+    .sitter-card,
+    .price-card,
+    .review-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 14px 42px rgba(24, 58, 53, .08);
+    }
+
+    .service-card {
+      padding: 24px;
+      min-height: 282px;
+      display: grid;
+      align-content: space-between;
+      gap: 20px;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--teal-deep);
+      background: var(--mint);
+    }
+
+    .icon-box.coral {
+      color: #a5412e;
+      background: #ffe4dc;
+    }
+
+    .icon-box.yellow {
+      color: #7b5a00;
+      background: #fff1bd;
+    }
+
+    .icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .service-card h3 {
+      margin: 16px 0 8px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: #f1f6f4;
+      color: var(--teal-deep);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .process {
+      background: var(--paper);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      min-height: 188px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      margin-bottom: 36px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      top: -22px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: rgba(243, 123, 98, .13);
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sitters {
+      background: #ecf7f2;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sitter-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .sitter-card {
+      padding: 24px;
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-row:last-child {
+      border-bottom: 0;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--teal), var(--green));
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .profile-row h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .profile-row p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .rating {
+      color: #9d6d00;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .safety-panel {
+      padding: 30px;
+      border-radius: 8px;
+      background: var(--teal-deep);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .safety-panel h2 {
+      margin: 0 0 14px;
+      font-size: 31px;
+      line-height: 1.14;
+    }
+
+    .safety-panel p {
+      margin: 0 0 22px;
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .safety-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .safety-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .check {
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--teal-deep);
+      background: var(--yellow);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .pricing {
+      background: var(--paper);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border-color: rgba(13, 139, 127, .55);
+      box-shadow: 0 24px 68px rgba(13, 139, 127, .18);
+    }
+
+    .price-card.featured::before {
+      content: "热门";
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 5px 9px;
+      border-radius: 8px;
+      background: var(--coral);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+    }
+
+    .price {
+      margin: 0 0 18px;
+      color: var(--teal-deep);
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .features {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .features li {
+      display: flex;
+      gap: 8px;
+    }
+
+    .reviews {
+      background: #f6fbf8;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .review-card {
+      padding: 26px;
+    }
+
+    .review-card blockquote {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.45;
+    }
+
+    .review-card footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .community-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      min-height: 132px;
+      padding: 22px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .stat-box strong {
+      display: block;
+      color: var(--teal-deep);
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .stat-box span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      padding: 64px 0;
+      background: var(--teal-deep);
+      color: #fff;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.12;
+    }
+
+    .cta p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .cta .btn-primary {
+      background: var(--yellow);
+      color: #4a3a03;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .18);
+    }
+
+    .footer {
+      padding: 28px 0;
+      background: #102b28;
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px;
+    }
+
+    .footer .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, .98) 0%, rgba(255, 253, 248, .92) 44%, rgba(255, 253, 248, .4) 100%),
+          url("assets/hero-pets.png") center bottom / cover no-repeat;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 52px;
+      }
+
+      .booking-panel {
+        justify-self: start;
+        margin-top: 28px;
+      }
+
+      .service-grid,
+      .steps,
+      .price-grid,
+      .sitter-layout,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head,
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .nav-actions .btn-ghost {
+        display: none;
+      }
+
+      .hero-inner {
+        padding: 36px 0 46px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .trust-strip,
+      .steps,
+      .community-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .inline-fields,
+      .service-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .profile-row {
+        grid-template-columns: 54px 1fr;
+      }
+
+      .profile-row .rating {
+        grid-column: 2;
+      }
+
+      .avatar {
+        width: 54px;
+        height: 54px;
+      }
+
+      .review-card blockquote {
+        font-size: 19px;
+      }
+
+      .footer .shell {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-only {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="邻宠到家首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11.2 20.2c-2.8 0-5.1-1.5-5.1-4 0-2.1 1.6-3.7 3.6-5.2 1.1-.8 1.9-1.7 2.4-2.9.5 1.2 1.3 2.1 2.4 2.9 2 1.5 3.6 3.1 3.6 5.2 0 2.5-2.3 4-5.1 4h-1.8z"/>
+            <path d="M5.4 10.3c-1.1.2-2.1-.7-2.3-2s.5-2.5 1.6-2.7c1.1-.2 2.1.7 2.3 2s-.5 2.5-1.6 2.7z"/>
+            <path d="M18.6 10.3c1.1.2 2.1-.7 2.3-2s-.5-2.5-1.6-2.7c-1.1-.2-2.1.7-2.3 2s.5 2.5 1.6 2.7z"/>
+            <path d="M9 6.8c-1 .1-1.9-.8-2-2.1-.1-1.2.6-2.3 1.6-2.4 1-.1 1.9.8 2 2.1.1 1.2-.6 2.3-1.6 2.4z"/>
+            <path d="M15 6.8c1 .1 1.9-.8 2-2.1.1-1.2-.6-2.3-1.6-2.4-1-.1-1.9.8-2 2.1-.1 1.2.6 2.3 1.6 2.4z"/>
+          </svg>
+        </span>
+        邻宠到家
+      </a>
+      <div class="nav-links" aria-label="页面栏目">
+        <a href="#services">服务</a>
+        <a href="#process">流程</a>
+        <a href="#sitters">照护者</a>
+        <a href="#pricing">价格</a>
+        <a href="#reviews">口碑</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="#pricing">查看价格</a>
+        <a class="btn btn-primary" href="#booking">立即预约</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="邻宠到家社区宠物服务">
+      <div class="hero-inner shell">
+        <div>
+          <p class="eyebrow">上门遛狗 · 上门喂猫 · 宠物日托</p>
+          <h1>把社区里的靠谱宠物照护，送到你家门口。</h1>
+          <p class="lead">邻宠到家连接同小区、同街区的认证照护者，按需预约遛狗、喂猫、清洁与日托，服务过程实时更新。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#booking">预约一次服务</a>
+            <a class="btn btn-ghost" href="#sitters">看看附近照护者</a>
+          </div>
+          <div class="trust-strip" aria-label="平台数据">
+            <div class="trust-item">
+              <strong>15分钟</strong>
+              <span>最快响应附近订单</span>
+            </div>
+            <div class="trust-item">
+              <strong>98.6%</strong>
+              <span>服务完成满意率</span>
+            </div>
+            <div class="trust-item">
+              <strong>24小时</strong>
+              <span>客服与应急支持</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="booking-panel" id="booking" aria-label="快速预约">
+          <div class="booking-title">
+            <h2>快速预约</h2>
+            <span class="status-pill">社区优先派单</span>
+          </div>
+          <div class="service-tabs" role="tablist" aria-label="选择服务">
+            <button class="tab active" type="button" data-service="walk" role="tab" aria-selected="true">遛狗</button>
+            <button class="tab" type="button" data-service="cat" role="tab" aria-selected="false">喂猫</button>
+            <button class="tab" type="button" data-service="daycare" role="tab" aria-selected="false">日托</button>
+          </div>
+          <form class="form-grid">
+            <div class="field">
+              <label for="address">服务地址</label>
+              <input id="address" type="text" placeholder="例如：阳光花园 3 号楼">
+            </div>
+            <div class="inline-fields">
+              <div class="field">
+                <label for="date">日期</label>
+                <input id="date" type="date">
+              </div>
+              <div class="field">
+                <label for="time">时间</label>
+                <select id="time">
+                  <option>08:00 - 10:00</option>
+                  <option>10:00 - 12:00</option>
+                  <option>14:00 - 16:00</option>
+                  <option>18:00 - 20:00</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pet">宠物信息</label>
+              <input id="pet" type="text" placeholder="例如：边牧 2岁 / 英短 4岁">
+            </div>
+            <div class="quote-row" aria-live="polite">
+              <span id="quoteText">30分钟社区遛狗</span>
+              <strong id="quotePrice">¥39</strong>
+            </div>
+            <button class="btn btn-primary" type="button">匹配照护者</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="shell">
+        <div class="section-head">
+          <h2>高频宠物需求，一站解决</h2>
+          <p>围绕社区半径配置照护者，减少通勤等待，让宠物在熟悉的环境里被照顾。</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div>
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 13c1.5-2 3.2-3 5-3s3.5 1 5 3"/>
+                  <path d="M5 13h14l-1.2 5H6.2L5 13z"/>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                  <path d="M4 19h16"/>
+                </svg>
+              </div>
+              <h3>上门遛狗</h3>
+              <p>按路线记录、便便清理、补水反馈，适合上班日和短途出差。</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">30/60分钟</span>
+              <span class="tag">GPS轨迹</span>
+              <span class="tag">照片回传</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="icon-box coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 8c0-2 1.8-4 5-4s5 2 5 4v6c0 3-2 6-5 6s-5-3-5-6V8z"/>
+                  <path d="M8 8 5 5"/>
+                  <path d="m16 8 3-3"/>
+                  <path d="M9 13h.01M15 13h.01"/>
+                  <path d="M11 16h2"/>
+                </svg>
+              </div>
+              <h3>上门喂猫</h3>
+              <p>喂食换水、铲砂通风、陪玩观察，支持多猫家庭和特殊饮食备注。</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">铲砂清洁</span>
+              <span class="tag">药品提醒</span>
+              <span class="tag">上门拍照</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="icon-box yellow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 11 12 4l8 7"/>
+                  <path d="M6 10v9h12v-9"/>
+                  <path d="M9 19v-5h6v5"/>
+                </svg>
+              </div>
+              <h3>宠物日托</h3>
+              <p>白天寄托、分区玩耍、定时休息，适合装修、聚会或长时间外出。</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">半日/全日</span>
+              <span class="tag">分体型活动</span>
+              <span class="tag">接送可选</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="shell">
+        <div class="section-head">
+          <h2>从预约到回家，全程清楚</h2>
+          <p>每一次服务都有标准流程和可追踪记录，让主人放心，也让照护者更高效。</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>提交需求</h3>
+            <p>填写宠物习惯、地址、时间和注意事项，系统先筛选附近可接单人员。</p>
+          </article>
+          <article class="step">
+            <h3>确认照护者</h3>
+            <p>查看服务经验、评价与认证记录，支持下单前在线沟通。</p>
+          </article>
+          <article class="step">
+            <h3>实时服务</h3>
+            <p>轨迹、照片、喂食、清洁和异常情况都会同步到服务卡片。</p>
+          </article>
+          <article class="step">
+            <h3>完成反馈</h3>
+            <p>主人评价后生成宠物档案，下一次预约会自动带入偏好。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sitters" id="sitters">
+      <div class="shell sitter-layout">
+        <div class="sitter-card">
+          <div class="section-head">
+            <h2>附近可预约照护者</h2>
+            <p>身份核验、基础培训、服务记录三项同时在线。</p>
+          </div>
+          <div class="profile-row">
+            <div class="avatar"><img src="assets/avatar-lin.png" alt="林可头像"></div>
+            <div>
+              <h3>林可 · 上门遛狗</h3>
+              <p>人民公园片区 · 擅长中大型犬 · 580次服务</p>
+            </div>
+            <span class="rating">4.98</span>
+          </div>
+          <div class="profile-row">
+            <div class="avatar"><img src="assets/avatar-zhou.png" alt="周念头像"></div>
+            <div>
+              <h3>周念 · 喂猫陪护</h3>
+              <p>滨河社区 · 多猫家庭经验 · 412次服务</p>
+            </div>
+            <span class="rating">4.96</span>
+          </div>
+          <div class="profile-row">
+            <div class="avatar"><img src="assets/avatar-xu.png" alt="许沐头像"></div>
+            <div>
+              <h3>许沐 · 宠物日托</h3>
+              <p>南门商圈 · 小型犬分区日托 · 326次服务</p>
+            </div>
+            <span class="rating">4.95</span>
+          </div>
+        </div>
+        <aside class="safety-panel">
+          <h2>照护者不是临时派来的人，而是社区里的可信联系人。</h2>
+          <p>平台会对服务人员进行身份、住址、宠物经验与应急能力审核，并为订单配置服务保障。</p>
+          <ul class="safety-list">
+            <li><span class="check">✓</span><span>实名认证、背景筛查与面试通过后才能接单。</span></li>
+            <li><span class="check">✓</span><span>服务前确认门禁、钥匙、喂食、牵引和医疗禁忌。</span></li>
+            <li><span class="check">✓</span><span>异常情况一键联系主人与平台客服，留存完整记录。</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="shell">
+        <div class="section-head">
+          <h2>透明价格，按需选择</h2>
+          <p>实际价格会根据距离、宠物数量、节假日与特殊照护需求自动调整。</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card">
+            <h3>上门遛狗</h3>
+            <p class="price">¥39 <small>/ 30分钟起</small></p>
+            <ul class="features">
+              <li>✓ 社区路线遛行</li>
+              <li>✓ 轨迹与照片回传</li>
+              <li>✓ 清理与补水提醒</li>
+            </ul>
+            <a class="btn btn-ghost" href="#booking">预约遛狗</a>
+          </article>
+          <article class="price-card featured">
+            <h3>上门喂猫</h3>
+            <p class="price">¥49 <small>/ 次起</small></p>
+            <ul class="features">
+              <li>✓ 喂食换水与铲砂</li>
+              <li>✓ 15分钟陪玩观察</li>
+              <li>✓ 多猫家庭可加购</li>
+            </ul>
+            <a class="btn btn-primary" href="#booking">预约喂猫</a>
+          </article>
+          <article class="price-card">
+            <h3>宠物日托</h3>
+            <p class="price">¥129 <small>/ 半日起</small></p>
+            <ul class="features">
+              <li>✓ 分区活动与午休</li>
+              <li>✓ 定时照片反馈</li>
+              <li>✓ 接送服务可选</li>
+            </ul>
+            <a class="btn btn-ghost" href="#booking">预约日托</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="shell review-grid">
+        <article class="review-card">
+          <blockquote>“临时加班时预约了晚间遛狗，照护者把路线、喝水和状态都发回来了。第二次预约系统还记得我家狗怕电动车，体验很稳。”</blockquote>
+          <footer>陈女士 · 金桥社区 · 柯基主人</footer>
+        </article>
+        <div class="community-stats">
+          <div class="stat-box">
+            <strong>36个</strong>
+            <span>已覆盖社区服务圈</span>
+          </div>
+          <div class="stat-box">
+            <strong>8,200+</strong>
+            <span>累计宠物照护订单</span>
+          </div>
+          <div class="stat-box">
+            <strong>3分钟</strong>
+            <span>平均订单确认时间</span>
+          </div>
+          <div class="stat-box">
+            <strong>4.97</strong>
+            <span>照护者平均评分</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="shell cta-inner">
+        <div>
+          <h2>今天就把宠物照护安排好。</h2>
+          <p>输入社区地址，查看附近可接单照护者与实时价格。</p>
+        </div>
+        <a class="btn btn-primary" href="#booking">开始预约</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>© 2026 邻宠到家 Community Pet Care</span>
+      <span>联系人：吕先生 联系电话： 185 0395 3356 · 服务时间 08:00-22:00</span>
+    </div>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const quoteText = document.querySelector("#quoteText");
+    const quotePrice = document.querySelector("#quotePrice");
+    const quoteMap = {
+      walk: ["30分钟社区遛狗", "¥39"],
+      cat: ["喂食换水铲砂一次", "¥49"],
+      daycare: ["半日宠物日托", "¥129"]
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        const [label, price] = quoteMap[tab.dataset.service];
+        quoteText.textContent = label;
+        quotePrice.textContent = price;
+      });
+    });
+
+    const dateInput = document.querySelector("#date");
+    if (dateInput) {
+      const today = new Date();
+      const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+        .toISOString()
+        .slice(0, 10);
+      dateInput.value = localDate;
+      dateInput.min = localDate;
+    }
+  </script>
+</body>
+</html>

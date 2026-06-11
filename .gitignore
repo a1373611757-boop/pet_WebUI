@@ -1,0 +1,22 @@
+# Local deployment state
+.netlify/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE folders
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Dependency and build output folders, kept here in case the static page grows later
+node_modules/
+dist/
+build/
+coverage/
