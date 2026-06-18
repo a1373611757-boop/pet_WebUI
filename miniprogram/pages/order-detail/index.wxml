@@ -1,0 +1,56 @@
+<navigation-bar title="订单详情" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page detail-page" scroll-y type="list">
+  <block wx:if="{{order}}">
+    <view class="summary card">
+      <view>
+        <text class="service-name">{{order.serviceName}}</text>
+        <text class="created">提交于 {{order.createdAtText}}</text>
+      </view>
+      <text class="status status-{{order.status}}">{{order.statusText}}</text>
+    </view>
+
+    <view class="price-card card">
+      <text class="price-label">预估价格</text>
+      <text class="price">{{order.priceText}}</text>
+      <text class="price-note">本地演示价格，不会发起真实支付。</text>
+    </view>
+
+    <view class="info-card card">
+      <text class="block-title">服务信息</text>
+      <view class="row">
+        <text class="label">日期</text>
+        <text class="value">{{order.date}}</text>
+      </view>
+      <view class="row">
+        <text class="label">时间</text>
+        <text class="value">{{order.timeSlot}}</text>
+      </view>
+      <view class="row">
+        <text class="label">地址</text>
+        <text class="value">{{order.address}}</text>
+      </view>
+    </view>
+
+    <view class="info-card card">
+      <text class="block-title">宠物信息</text>
+      <view class="row">
+        <text class="label">宠物</text>
+        <text class="value">{{order.petName}} · {{order.petType}}</text>
+      </view>
+      <view class="note-block">
+        <text class="label">宠物备注</text>
+        <text class="note">{{order.petNotesText}}</text>
+      </view>
+      <view class="note-block">
+        <text class="label">其他备注</text>
+        <text class="note">{{order.userNotesText}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="empty card" wx:else>
+    <text class="empty-title">没有找到订单</text>
+    <text class="empty-desc">订单可能已被清空，请返回订单页查看。</text>
+  </view>
+</scroll-view>

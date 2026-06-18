@@ -1,0 +1,40 @@
+<navigation-bar title="附近照护者" back="{{false}}" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page sitters-page" scroll-y type="list">
+  <view class="list-hero">
+    <text class="hero-title">同小区、同街区，照护更近一步</text>
+    <text class="hero-desc">按服务筛选附近照护者，查看评分、片区和服务经验。</text>
+  </view>
+
+  <scroll-view class="filter-scroll" scroll-x type="list">
+    <view class="filter-inner">
+      <view
+        class="filter-tab {{activeFilter === item.value ? 'active' : ''}}"
+        wx:for="{{filterTabs}}"
+        wx:key="value"
+        data-value="{{item.value}}"
+        bindtap="selectFilter"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="sitter-list">
+    <view class="sitter-card card" wx:for="{{sitters}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+      <view class="avatar">{{item.initial}}</view>
+      <view class="sitter-body">
+        <view class="top-row">
+          <text class="name">{{item.name}}</text>
+          <text class="rating">★ {{item.rating}}</text>
+        </view>
+        <text class="service">{{item.serviceName}} · {{item.area}}</text>
+        <text class="specialty">{{item.specialty}}</text>
+        <view class="meta-row">
+          <text class="pill">{{item.serviceCount}}次服务</text>
+          <text class="pill">认证照护者</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,239 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "72px",
+      "fontWeight": "700",
+      "lineHeight": "73.44px",
+      "letterSpacing": "normal",
+      "color": "#21302F",
+      "sampleText": "把社区里的靠谱宠物照护，送到你家门口。"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "44px",
+      "fontWeight": "700",
+      "lineHeight": "49.28px",
+      "letterSpacing": "normal",
+      "color": "#21302F",
+      "sampleText": "高频宠物需求，一站解决"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "31px",
+      "fontWeight": "700",
+      "lineHeight": "35.34px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "照护者不是临时派来的人，而是社区里的可信联系人。"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "22px",
+      "fontWeight": "700",
+      "lineHeight": "34.1px",
+      "letterSpacing": "normal",
+      "color": "#21302F",
+      "sampleText": "上门遛狗"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "20px",
+      "fontWeight": "800",
+      "lineHeight": "31px",
+      "letterSpacing": "normal",
+      "color": "#075F58",
+      "sampleText": "邻宠到家"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "19px",
+      "fontWeight": "700",
+      "lineHeight": "29.45px",
+      "letterSpacing": "normal",
+      "color": "#21302F",
+      "sampleText": "快速预约"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "19px",
+      "fontWeight": "400",
+      "lineHeight": "29.45px",
+      "letterSpacing": "normal",
+      "color": "#52645F",
+      "sampleText": "邻宠到家连接同小区、同街区的认证照护者，按需预约遛狗、喂猫、清洁与日托，服务过程实时更新。"
+    },
+    {
+      "role": "body-small",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "14px",
+      "letterSpacing": "normal",
+      "color": "#60706C",
+      "sampleText": "/ 30分钟起"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Microsoft YaHei",
+      "fontSize": "13px",
+      "fontWeight": "700",
+      "lineHeight": "20.15px",
+      "letterSpacing": "normal",
+      "color": "#60706C",
+      "sampleText": "服务地址"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      1,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "8px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(24, 58, 53, 0.08) 0px 14px 42px 0px",
+      "count": 7
+    },
+    {
+      "value": "rgba(13, 139, 127, 0.24) 0px 12px 30px 0px",
+      "count": 4
+    },
+    {
+      "value": "rgba(24, 58, 53, 0.13) 0px 22px 70px 0px",
+      "count": 2
+    },
+    {
+      "value": "rgba(13, 139, 127, 0.18) 0px 24px 68px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.18) 0px 14px 34px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "预约一次服务",
+      "background": "#0D8B7F",
+      "color": "#FFFFFF",
+      "padding": "0px 18px",
+      "borderRadius": "8px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "rgba(13, 139, 127, 0.24) 0px 12px 30px 0px",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "height": "44px"
+    },
+    {
+      "label": "看看附近照护者",
+      "background": "#EDF8F4",
+      "color": "#075F58",
+      "padding": "0px 18px",
+      "borderRadius": "8px",
+      "border": "0px none rgb(7, 95, 88)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "height": "44px"
+    },
+    {
+      "label": "遛狗",
+      "background": "#0D8B7F",
+      "color": "#FFFFFF",
+      "padding": "1px 6px",
+      "borderRadius": "8px",
+      "border": "1px solid rgb(13, 139, 127)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "800",
+      "height": "50px"
+    },
+    {
+      "label": "喂猫",
+      "background": "#FFFFFF",
+      "color": "#60706C",
+      "padding": "1px 6px",
+      "borderRadius": "8px",
+      "border": "1px solid rgb(220, 231, 225)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "800",
+      "height": "50px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "color": "#21302F",
+      "padding": "18px",
+      "borderRadius": "8px",
+      "border": "1px solid rgba(255, 255, 255, 0.65)",
+      "boxShadow": "rgba(24, 58, 53, 0.13) 0px 22px 70px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "512.047px"
+    },
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "color": "#21302F",
+      "padding": "24px",
+      "borderRadius": "8px",
+      "border": "1px solid rgb(220, 231, 225)",
+      "boxShadow": "rgba(24, 58, 53, 0.08) 0px 14px 42px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "282px"
+    },
+    {
+      "label": "card",
+      "background": "#075F58",
+      "color": "#FFFFFF",
+      "padding": "30px",
+      "borderRadius": "8px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "rgba(24, 58, 53, 0.13) 0px 22px 70px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "466.531px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#FFFDF8",
+    "color": "#21302F",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "73px"
+  }
+}

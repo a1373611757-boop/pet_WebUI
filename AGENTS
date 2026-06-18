@@ -1,0 +1,192 @@
+你现在在一个微信小程序项目中工作。这个项目使用 TypeScript + Less，不使用微信云开发，也不接后端服务。请基于现有项目结构改造成一个名为「邻宠到家」的社区宠物服务预约小程序 MVP。
+
+参考产品内容：
+- 品牌：邻宠到家
+- 定位：社区宠物服务平台
+- 服务：上门遛狗、上门喂猫、宠物日托
+- 核心卖点：同小区/同街区认证照护者、按需预约、服务过程实时更新
+- 流程：提交需求、确认照护者、实时服务、完成反馈
+- 价格：
+  - 上门遛狗：¥39 / 30分钟起
+  - 上门喂猫：¥49 / 次起
+  - 宠物日托：¥129 / 半日起
+- 照护者示例：
+  - 林可：上门遛狗，人民公园片区，擅长中大型犬，580次服务，评分4.98
+  - 周念：喂猫陪护，滨河社区，多猫家庭经验，412次服务，评分4.96
+  - 许沐：宠物日托，南门商圈，小型犬分区日托，326次服务，评分4.95
+
+请先完成基础架构，不要接云服务，不要接真实支付。
+
+需要创建这些页面：
+1. 首页 pages/home/index
+   - 顶部品牌区
+   - 快速预约卡片
+   - 三类服务卡片
+   - 服务流程
+   - 附近照护者
+   - 价格卡片
+   - 底部 CTA
+
+2. 预约页 pages/booking/index
+   - 服务类型选择
+   - 地址输入
+   - 日期选择
+   - 时间段选择
+   - 宠物信息输入
+   - 备注输入
+   - 自动计算预估价格
+   - 点击提交后保存到本地 storage，并跳转到订单页
+
+3. 照护者页 pages/sitters/index
+   - 展示照护者列表
+   - 支持按服务类型筛选
+   - 点击可进入详情页
+
+4. 订单页 pages/orders/index
+   - 从本地 storage 读取预约记录
+   - 展示订单状态：待确认 / 服务中 / 已完成
+   - 空状态提示
+
+5. 我的页 pages/mine/index
+   - 宠物档案入口
+   - 我的预约入口
+   - 客服与应急说明
+   - 当前版本说明：本地演示版
+
+请创建：
+- data/services.ts
+- data/sitters.ts
+- data/prices.ts
+- types/index.ts
+- utils/storage.ts
+- utils/price.ts
+
+要求：
+- 使用 TypeScript 类型定义，不要大量使用 any
+- 使用 Less 写样式
+- UI 风格参考原网页：温暖、社区感、宠物服务、浅色背景、卡片式布局
+- 所有数据先写成本地 mock 数据
+- 不要使用云开发
+- 不要使用第三方 UI 库
+- 保证微信开发者工具可以编译运行
+- 修改 app.json，配置 tabBar：首页、预约、照护者、订单、我的
+- 完成后告诉我修改了哪些文件，以及如何在微信开发者工具中预览
+请继续完善预约功能。
+
+要求：
+1. 预约页支持以下字段：
+   - serviceType: dogWalking / catFeeding / dayCare
+   - address
+   - date
+   - timeSlot
+   - petName
+   - petType
+   - petNotes
+   - userNotes
+
+2. 价格计算规则：
+   - 遛狗基础价 39
+   - 喂猫基础价 49
+   - 日托基础价 129
+   - 如果备注里包含“多宠物”“多猫”“节假日”“药”，价格增加 20
+   - 如果时间段是 18:00 - 20:00，价格增加 10
+
+3. 点击提交预约：
+   - 校验必填字段
+   - 生成订单 id
+   - 保存到本地 storage
+   - 弹出提交成功 toast
+   - 跳转到订单页
+
+4. 订单页：
+   - 展示本地保存的所有订单
+   - 最新订单排在最上面
+   - 支持清空本地订单
+   - 支持点击订单查看详情
+
+5. 请保证 TypeScript 类型正确，避免 any。
+请根据「邻宠到家」网页的视觉气质优化小程序 UI。
+
+设计方向：
+- 温暖、干净、社区服务感
+- 背景使用浅米色或浅绿色
+- 主色使用绿色/青绿色
+- 卡片圆角明显
+- 按钮要有明显行动感
+- 首页要像一个小程序版 landing page
+- 预约页要简单、清楚、适合手机填写
+- 订单页要有状态标签
+- 照护者卡片要突出评分、片区、服务次数、擅长服务
+
+要求：
+- 全部样式写在 Less 文件里
+- 不引入第三方组件库
+- 保持微信小程序兼容
+- 不要破坏已有功能
+- 修改后说明主要改动
+miniprogram/
+  app.json
+  app.ts
+  app.less
+
+  data/
+    services.ts
+    sitters.ts
+    prices.ts
+
+  types/
+    index.ts
+
+  utils/
+    storage.ts
+    price.ts
+    format.ts
+
+  pages/
+    home/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    booking/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    sitters/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    sitter-detail/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    orders/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    order-detail/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+
+    mine/
+      index.wxml
+      index.ts
+      index.less
+      index.json
+      不要使用云开发。
+不要接真实后端。
+不要接微信支付。
+不要安装大型第三方框架。
+保持原生微信小程序结构。
+所有数据先用本地 mock 数据和 wx storage。

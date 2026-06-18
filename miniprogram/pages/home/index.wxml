@@ -1,0 +1,76 @@
+<navigation-bar title="邻宠到家" back="{{false}}" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page home-page" scroll-y type="list">
+  <view class="hero">
+    <view class="hero-copy">
+      <text class="eyebrow">上门遛狗 · 上门喂猫 · 宠物日托</text>
+      <text class="hero-title">把社区里的靠谱宠物照护，送到你家门口。</text>
+      <text class="hero-desc">连接同小区、同街区的认证照护者，按需预约，服务过程实时更新。</text>
+    </view>
+    <view class="hero-badge">
+      <text class="badge-num">4.98</text>
+      <text class="badge-label">附近好评</text>
+    </view>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-card card" wx:for="{{stats}}" wx:key="label">
+      <text class="stat-value">{{item.value}}</text>
+      <text class="stat-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <view class="quick-card card">
+    <view>
+      <text class="quick-title">快速预约</text>
+      <text class="quick-desc">社区优先派单，填写地址、日期、时间与宠物信息。</text>
+    </view>
+    <button class="primary-btn quick-btn" bindtap="goBooking">快速预约</button>
+  </view>
+
+  <view class="section-title">
+    <text>高频宠物需求，一站解决</text>
+  </view>
+  <text class="section-desc">围绕社区半径配置照护者，减少通勤等待，让宠物在熟悉的环境里被照顾。</text>
+  <view class="service-grid">
+    <view class="service-card card" wx:for="{{services}}" wx:key="type">
+      <view class="service-icon">{{item.icon}}</view>
+      <view class="service-main">
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-desc">{{item.description}}</text>
+      </view>
+      <view class="service-foot">
+        <text class="pill">{{item.subtitle}}</text>
+        <text class="service-price">{{item.priceLabel}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">
+    <text>信任看得见</text>
+  </view>
+  <text class="section-desc">把服务过程做成可追踪记录，宠物是否安全、是否适应，都能及时知道。</text>
+  <view class="trust-photo-card card">
+    <image class="trust-photo" src="/assets/home/trust-photo.jpg" mode="aspectFill"></image>
+    <view class="trust-overlay">
+      <text class="trust-kicker">真实照护流程</text>
+      <text class="trust-headline">入托前确认状态，服务中持续反馈。</text>
+    </view>
+  </view>
+
+  <view class="trust-grid">
+    <view class="trust-item card" wx:for="{{trustItems}}" wx:key="title">
+      <view class="trust-icon">{{item.icon}}</view>
+      <view class="trust-copy">
+        <text class="trust-title">{{item.title}}</text>
+        <text class="trust-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-cta">
+    <text>今天就把宠物照护安排好。</text>
+    <text class="cta-desc">输入社区地址，查看附近可接单照护者与实时价格。</text>
+    <button class="primary-btn" bindtap="goBooking">立即预约</button>
+  </view>
+</scroll-view>

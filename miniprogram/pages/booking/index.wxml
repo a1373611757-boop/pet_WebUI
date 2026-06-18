@@ -1,0 +1,73 @@
+<navigation-bar title="预约服务" back="{{false}}" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page booking-page" scroll-y type="list">
+  <view class="form-hero">
+    <text class="form-title">填写一次需求</text>
+    <text class="form-desc">我们会先生成本地演示订单，方便你预览完整预约流程。</text>
+  </view>
+
+  <view class="section-title">
+    <text>选择服务</text>
+  </view>
+  <view class="service-options">
+    <view
+      class="service-option card {{form.serviceType === item.type ? 'active' : ''}}"
+      wx:for="{{services}}"
+      wx:key="type"
+      data-service-type="{{item.type}}"
+      bindtap="selectService"
+    >
+      <view class="service-icon">{{item.icon}}</view>
+      <text class="option-name">{{item.name}}</text>
+      <text class="option-price">{{item.priceLabel}}</text>
+    </view>
+  </view>
+
+  <view class="form-card card">
+    <text class="group-title">时间与地址</text>
+    <view class="field">
+      <text class="label">服务地址 *</text>
+      <input class="input" value="{{form.address}}" placeholder="例如：滨河社区 3 号楼" bindinput="onAddressInput" />
+    </view>
+    <view class="field-row">
+      <picker class="picker field-half" mode="date" value="{{form.date}}" bindchange="onDateChange">
+        <text class="label">服务日期 *</text>
+        <view class="picker-value {{form.date ? '' : 'placeholder'}}">{{form.date ? form.date : '请选择日期'}}</view>
+      </picker>
+      <picker class="picker field-half" range="{{timeSlots}}" bindchange="onTimeChange">
+        <text class="label">时间段 *</text>
+        <view class="picker-value {{form.timeSlot ? '' : 'placeholder'}}">{{form.timeSlot ? form.timeSlot : '请选择时间'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-card card">
+    <text class="group-title">宠物信息</text>
+    <view class="field">
+      <text class="label">宠物名字 *</text>
+      <input class="input" value="{{form.petName}}" placeholder="例如：奶盖" bindinput="onPetNameInput" />
+    </view>
+    <view class="field">
+      <text class="label">宠物类型 *</text>
+      <input class="input" value="{{form.petType}}" placeholder="例如：柯基 / 布偶猫" bindinput="onPetTypeInput" />
+    </view>
+    <view class="field">
+      <text class="label">宠物备注</text>
+      <textarea class="textarea" value="{{form.petNotes}}" placeholder="性格、饮食、是否需要喂药等" bindinput="onPetNotesInput"></textarea>
+    </view>
+    <view class="field">
+      <text class="label">其他备注</text>
+      <textarea class="textarea" value="{{form.userNotes}}" placeholder="门禁、停车、节假日、多宠物等信息" bindinput="onUserNotesInput"></textarea>
+    </view>
+  </view>
+
+  <view class="estimate card">
+    <view>
+      <text class="estimate-label">预估价格</text>
+      <text class="estimate-note">含基础价与备注/晚间加价</text>
+    </view>
+    <view class="estimate-price">¥{{price.total}}</view>
+  </view>
+
+  <button class="primary-btn submit-btn" bindtap="submitBooking">提交预约</button>
+</scroll-view>

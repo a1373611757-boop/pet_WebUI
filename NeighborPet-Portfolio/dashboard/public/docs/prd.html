@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRD - 邻宠到家</title>
+    <style>
+      :root {
+        color: #1f2d2b;
+        background: #faf7f0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Microsoft YaHei", sans-serif;
+        line-height: 1.7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(250, 247, 240, 0.96)),
+          radial-gradient(circle at 12% 8%, rgba(15, 118, 110, 0.1), transparent 34%),
+          #faf7f0;
+      }
+
+      main {
+        width: min(920px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      article {
+        border: 1px solid #e6ded2;
+        border-radius: 18px;
+        padding: 42px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 46px rgba(58, 48, 36, 0.08);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #1f2d2b;
+        line-height: 1.24;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 38px;
+      }
+
+      h2 {
+        margin: 34px 0 12px;
+        padding-top: 20px;
+        border-top: 1px solid #e6ded2;
+        font-size: 24px;
+      }
+
+      h3 {
+        margin: 22px 0 8px;
+        font-size: 18px;
+      }
+
+      p,
+      li {
+        color: #66736f;
+        font-size: 15px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      .meta {
+        display: inline-flex;
+        margin-bottom: 26px;
+        border: 1px solid rgba(15, 118, 110, 0.16);
+        border-radius: 999px;
+        padding: 7px 11px;
+        color: #0b5f59;
+        background: rgba(236, 250, 246, 0.9);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      @media (max-width: 680px) {
+        main {
+          width: min(100% - 24px, 920px);
+          padding: 24px 0;
+        }
+
+        article {
+          padding: 22px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          font-size: 29px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <span class="meta">Product Requirements Document</span>
+        <h1>PRD - 邻宠到家</h1>
+
+        <h2>1. 产品概述</h2>
+        <p>
+          邻宠到家是一款面向城市养宠家庭的本地化上门宠物服务平台，提供喂养、遛狗、陪伴、洗护预约和订单跟踪。平台以“附近可信赖的人”和“透明可追踪的服务过程”为核心，降低宠物主人临时出行、加班、旅行时的照护焦虑。
+        </p>
+
+        <h2>2. 背景与机会</h2>
+        <p>城市养宠人群增长，但宠物照护服务仍存在三个痛点：</p>
+        <ul>
+          <li>临时需求强，用户经常在出差、加班、旅行前才寻找照护。</li>
+          <li>信任成本高，用户需要确认服务者身份、经验、评价和服务过程。</li>
+          <li>供给管理难，平台需要平衡服务者空闲时间、地理覆盖、订单密度和履约质量。</li>
+        </ul>
+
+        <h2>3. 产品目标</h2>
+        <ul>
+          <li>用户侧：让宠物主人在 3 分钟内完成可信服务选择与预约。</li>
+          <li>服务侧：帮助服务者清楚管理日程、服务标准和收入。</li>
+          <li>平台侧：通过数据看板监控转化、履约、渠道、服务结构与服务者利用率。</li>
+        </ul>
+
+        <h2>4. 目标用户</h2>
+        <h3>宠物主人</h3>
+        <ul>
+          <li>年龄 24-40 岁，工作节奏较快，常有短时外出或加班场景。</li>
+          <li>关注服务者可信度、宠物安全、过程反馈和价格透明。</li>
+        </ul>
+
+        <h3>邻里服务者</h3>
+        <ul>
+          <li>有养宠经验、时间相对灵活，希望获取附近订单。</li>
+          <li>需要清晰的订单说明、路线、服务记录和评价反馈。</li>
+        </ul>
+
+        <h3>运营人员</h3>
+        <ul>
+          <li>关注获客效率、下单转化、服务履约、投诉风险和服务者供给。</li>
+          <li>需要可扫描的数据看板支持日常复盘。</li>
+        </ul>
+
+        <h2>5. 核心场景</h2>
+        <h3>场景一：临时上门喂养</h3>
+        <p>用户因周末短途出行，需要服务者每天上门喂猫、换水、铲砂并拍照反馈。</p>
+        <h3>场景二：工作日晚间遛狗</h3>
+        <p>用户临时加班，选择附近高评分服务者完成 30 分钟遛狗服务。</p>
+        <h3>场景三：服务过程追踪</h3>
+        <p>服务开始后，用户查看签到时间、定位、照片、服务备注和完成状态。</p>
+
+        <h2>6. MVP 范围</h2>
+        <h3>用户端</h3>
+        <ul>
+          <li>首页服务入口：喂养、遛狗、陪伴、洗护。</li>
+          <li>服务者列表：评分、距离、价格、标签、可预约时间。</li>
+          <li>服务者详情：介绍、经验、评价、服务能力、可服务宠物类型。</li>
+          <li>预约下单：宠物信息、地址、服务时间、备注、价格确认。</li>
+          <li>订单跟踪：待服务、服务中、已完成、取消。</li>
+        </ul>
+
+        <h3>服务者端</h3>
+        <ul>
+          <li>接单与日程查看。</li>
+          <li>服务签到、完成记录、图片反馈。</li>
+          <li>收入与评价查看。</li>
+        </ul>
+
+        <h3>运营看板</h3>
+        <ul>
+          <li>GMV、订单量、转化率、复购率、履约率。</li>
+          <li>订单趋势、预约漏斗、渠道贡献。</li>
+          <li>服务类型分布、服务者利用率。</li>
+          <li>AI 洞察摘要与运营建议。</li>
+        </ul>
+
+        <h2>7. 非目标范围</h2>
+        <ul>
+          <li>即时聊天 IM 系统。</li>
+          <li>宠物医疗问诊。</li>
+          <li>跨城市复杂调度。</li>
+          <li>自动动态定价。</li>
+        </ul>
+
+        <h2>8. 指标定义</h2>
+        <ul>
+          <li>GMV：已支付订单总额。</li>
+          <li>预约转化率：提交预约人数 / 浏览服务详情人数。</li>
+          <li>履约率：已完成订单 / 已支付订单。</li>
+          <li>复购率：周期内有 2 次及以上下单用户 / 下单用户。</li>
+          <li>服务者利用率：已服务时长 / 可服务时长。</li>
+        </ul>
+
+        <h2>9. 风险与约束</h2>
+        <ul>
+          <li>信任风险：需要实名认证、服务记录、评价体系和平台保障说明。</li>
+          <li>履约风险：需要签到、定位、异常上报和取消规则。</li>
+          <li>供给风险：需要关注不同区域和时间段的服务者可用性。</li>
+          <li>宠物安全风险：需要宠物档案、服务禁忌、应急联系人和服务规范。</li>
+        </ul>
+
+        <h2>10. 成功标准</h2>
+        <ul>
+          <li>新用户从首页到提交预约的路径清晰，核心流程少于 5 步。</li>
+          <li>首批运营看板能支持每日复盘和渠道投放判断。</li>
+          <li>MVP 数据结构能覆盖订单、用户、服务者、服务类型和渠道来源。</li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>

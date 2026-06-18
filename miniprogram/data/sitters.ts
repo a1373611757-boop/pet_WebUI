@@ -1,0 +1,40 @@
+import type { Sitter } from '../types/index'
+
+export const sitters: Sitter[] = [
+  {
+    id: 'lin-ke',
+    name: '林可',
+    serviceType: 'dogWalking',
+    serviceName: '上门遛狗',
+    area: '人民公园片区',
+    specialty: '擅长中大型犬',
+    serviceCount: 580,
+    rating: 4.98,
+    tags: ['同街区认证', '路线回传', '中大型犬经验'],
+    bio: '三年社区遛犬经验，熟悉人民公园周边安全路线，会根据犬只体力调整节奏。',
+  },
+  {
+    id: 'zhou-nian',
+    name: '周念',
+    serviceType: 'catFeeding',
+    serviceName: '喂猫陪护',
+    area: '滨河社区',
+    specialty: '多猫家庭经验',
+    serviceCount: 412,
+    rating: 4.96,
+    tags: ['多猫家庭', '喂药提醒', '环境清洁'],
+    bio: '长期服务滨河社区养猫家庭，重视入户前后确认和服务过程照片更新。',
+  },
+  {
+    id: 'xu-mu',
+    name: '许沐',
+    serviceType: 'dayCare',
+    serviceName: '宠物日托',
+    area: '南门商圈',
+    specialty: '小型犬分区日托',
+    serviceCount: 326,
+    rating: 4.95,
+    tags: ['小型犬友好', '分区活动', '半日托管'],
+    bio: '提供小型犬分区日托，控制接待数量，定时同步饮水、活动和休息状态。',
+  },
+]

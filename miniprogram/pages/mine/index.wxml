@@ -1,0 +1,26 @@
+<navigation-bar title="我的" back="{{false}}" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page mine-page" scroll-y type="list">
+  <view class="profile-card card">
+    <view class="profile-avatar">邻</view>
+    <view class="profile-main">
+      <text class="profile-title">邻宠到家</text>
+      <text class="profile-desc">社区宠物服务预约小程序 · {{version}}</text>
+    </view>
+  </view>
+
+  <view class="notice card">
+    <text class="notice-title">当前版本说明</text>
+    <text class="notice-desc">本版本仅使用本地 mock 数据和 wx storage，不接云开发、不接后端、不接真实支付。</text>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item card" wx:for="{{items}}" wx:key="title" data-title="{{item.title}}" bindtap="goOrders">
+      <view>
+        <text class="menu-title">{{item.title}}</text>
+        <text class="menu-desc">{{item.desc}}</text>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+</scroll-view>

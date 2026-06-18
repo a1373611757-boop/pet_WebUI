@@ -1,0 +1,51 @@
+<navigation-bar title="照护者详情" color="#203b30" background="#eef7ef"></navigation-bar>
+
+<scroll-view class="page detail-page" scroll-y type="list">
+  <block wx:if="{{sitter}}">
+    <view class="profile card">
+      <view class="avatar">{{sitter.initial}}</view>
+      <view class="profile-main">
+        <view class="top-row">
+          <text class="name">{{sitter.name}}</text>
+          <text class="rating">★ {{sitter.rating}}</text>
+        </view>
+        <text class="service">{{sitter.serviceName}} · {{sitter.area}}</text>
+        <text class="specialty">{{sitter.specialty}}</text>
+      </view>
+    </view>
+
+    <view class="stats card">
+      <view class="stat">
+        <text class="stat-value">{{sitter.serviceCount}}</text>
+        <text class="stat-label">服务次数</text>
+      </view>
+      <view class="stat">
+        <text class="stat-value">{{sitter.rating}}</text>
+        <text class="stat-label">用户评分</text>
+      </view>
+      <view class="stat">
+        <text class="stat-value">同街区</text>
+        <text class="stat-label">认证范围</text>
+      </view>
+    </view>
+
+    <view class="info-card card">
+      <text class="block-title">服务介绍</text>
+      <text class="bio">{{sitter.bio}}</text>
+    </view>
+
+    <view class="info-card card">
+      <text class="block-title">擅长标签</text>
+      <view class="tag-row">
+        <text class="pill" wx:for="{{sitter.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <button class="primary-btn bottom-btn" bindtap="goBooking">预约这个服务类型</button>
+  </block>
+
+  <view class="empty card" wx:else>
+    <text class="empty-title">没有找到照护者</text>
+    <text class="empty-desc">返回列表重新选择一位附近照护者。</text>
+  </view>
+</scroll-view>

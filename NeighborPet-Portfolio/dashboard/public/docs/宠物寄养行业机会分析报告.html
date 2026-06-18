@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宠物寄养行业机会分析报告</title>
+    <style>
+      :root {
+        color: #1f2d2b;
+        background: #faf7f0;
+        --primary: #0f766e;
+        --muted: #66736f;
+        --border: #e6ded2;
+        --gold: #d6a85a;
+        --coral: #f08a6b;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Microsoft YaHei", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(250, 247, 240, 0.96)),
+          radial-gradient(circle at 12% 8%, rgba(15, 118, 110, 0.1), transparent 34%),
+          #faf7f0;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .report-shell {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 42px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 46px rgba(58, 48, 36, 0.08);
+      }
+
+      .kicker,
+      .tag,
+      .badge {
+        display: inline-flex;
+        border: 1px solid rgba(15, 118, 110, 0.16);
+        border-radius: 999px;
+        color: #0b5f59;
+        background: rgba(236, 250, 246, 0.9);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .kicker {
+        margin-bottom: 18px;
+        padding: 7px 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .badge {
+        padding: 5px 9px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin-bottom: 12px;
+        color: #1f2d2b;
+        font-size: 38px;
+        line-height: 1.2;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        color: #1f2d2b;
+        font-size: 26px;
+        line-height: 1.24;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        color: #1f2d2b;
+        font-size: 17px;
+      }
+
+      .lead,
+      .section > p,
+      .card p,
+      .step p,
+      .note,
+      li {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .lead {
+        max-width: 840px;
+        margin-bottom: 26px;
+        font-size: 16px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        border: 1px solid var(--primary);
+        border-radius: 999px;
+        padding: 0 16px;
+        color: #fff;
+        background: var(--primary);
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .button--secondary {
+        color: #765421;
+        border-color: rgba(214, 168, 90, 0.42);
+        background: rgba(255, 249, 238, 0.88);
+      }
+
+      .section {
+        margin-top: 28px;
+        border-top: 1px solid var(--border);
+        padding-top: 28px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .grid--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card,
+      .step,
+      .formula,
+      .matrix {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .card p {
+        margin-bottom: 0;
+      }
+
+      .opportunity-map {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .step {
+        position: relative;
+        min-height: 150px;
+        padding: 16px;
+      }
+
+      .step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 50%;
+        right: -17px;
+        z-index: 2;
+        color: var(--primary);
+        font-size: 20px;
+        font-weight: 900;
+        transform: translateY(-50%);
+      }
+
+      .step strong,
+      .formula strong {
+        display: block;
+        margin: 10px 0 6px;
+        color: #1f2d2b;
+      }
+
+      .formula {
+        padding: 18px;
+        background: rgba(255, 249, 238, 0.92);
+      }
+
+      .formula code {
+        display: block;
+        margin-top: 8px;
+        border-radius: 12px;
+        padding: 12px;
+        color: #1f2d2b;
+        background: rgba(255, 255, 255, 0.72);
+        font-family: Consolas, "Microsoft YaHei", monospace;
+        white-space: pre-wrap;
+      }
+
+      .matrix {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+      }
+
+      .matrix th,
+      .matrix td {
+        border-bottom: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        padding: 13px;
+        text-align: left;
+        vertical-align: top;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .matrix th {
+        color: #1f2d2b;
+        background: rgba(236, 250, 246, 0.82);
+        font-weight: 900;
+      }
+
+      .matrix tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .matrix th:last-child,
+      .matrix td:last-child {
+        border-right: 0;
+      }
+
+      .risk-list {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0 0;
+        padding-left: 20px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        padding: 6px 9px;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+        }
+
+        .report-shell {
+          box-shadow: none;
+          border: 0;
+          padding: 24px;
+        }
+
+        .actions {
+          display: none;
+        }
+
+        .section {
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .grid--3,
+        .grid--2,
+        .opportunity-map {
+          grid-template-columns: 1fr;
+        }
+
+        .step:not(:last-child)::after {
+          content: "↓";
+          right: 50%;
+          top: auto;
+          bottom: -22px;
+          transform: translateX(50%);
+        }
+      }
+
+      @media (max-width: 680px) {
+        main {
+          width: min(100% - 24px, 1180px);
+          padding: 24px 0;
+        }
+
+        .report-shell {
+          padding: 22px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="report-shell">
+        <span class="kicker">Industry Opportunity Report</span>
+        <h1>宠物寄养行业机会分析报告</h1>
+        <p class="lead">
+          本报告基于“邻宠到家”项目案例页与作品集总览生成，重点分析宠物寄养与上门照护场景中的用户痛点、商家痛点、数字化机会和 AI 应用空间。报告不使用未经来源确认的市场规模数字，规模判断采用 TAM/SAM/SOM 框架表达。
+        </p>
+        <div class="actions">
+          <a class="button" href="宠物寄养行业机会分析报告.pdf">查看 PDF</a>
+          <a class="button button--secondary" href="../">返回项目资源目录</a>
+        </div>
+
+        <section class="section">
+          <h2>1. 为什么宠物寄养适合数字化切入</h2>
+          <p>
+            宠物寄养是一个强信任、强情感、强履约的本地生活服务。用户不仅关心价格，也关心安全、环境、服务过程和反馈质量；商家则面临私域咨询分散、预约管理零散、宠物档案难沉淀、复购运营缺少数据支撑等问题。
+          </p>
+          <div class="opportunity-map">
+            <div class="step">
+              <span class="badge">Demand</span>
+              <strong>临时照护需求</strong>
+              <p>出差、旅行、节假日、加班等场景触发托付需求。</p>
+            </div>
+            <div class="step">
+              <span class="badge">Trust</span>
+              <strong>信任建立</strong>
+              <p>环境、资质、评价、服务记录决定用户是否预约。</p>
+            </div>
+            <div class="step">
+              <span class="badge">Booking</span>
+              <strong>预约承接</strong>
+              <p>服务类型、档期、宠物信息、价格确认需要结构化。</p>
+            </div>
+            <div class="step">
+              <span class="badge">Service</span>
+              <strong>履约反馈</strong>
+              <p>签到、照片、日报、异常记录降低不在场焦虑。</p>
+            </div>
+            <div class="step">
+              <span class="badge">Growth</span>
+              <strong>复购运营</strong>
+              <p>历史档案和经营看板帮助商家维护老客。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>2. 用户与商家痛点</h2>
+          <div class="grid grid--3">
+            <div class="card">
+              <h3>宠主侧</h3>
+              <p>预约前信息不透明，寄养中缺少过程反馈；用户需要降低托付风险，而不只是找到最低价格。</p>
+            </div>
+            <div class="card">
+              <h3>商家侧</h3>
+              <p>微信、小红书、朋友圈带来咨询，但订单、宠物档案、备注和服务记录容易分散。</p>
+            </div>
+            <div class="card">
+              <h3>经营侧</h3>
+              <p>缺少渠道、转化、入住率和复购数据分析，难以判断获客质量和高峰供给压力。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>3. 市场机会判断框架</h2>
+          <p>
+            在没有可靠外部数据来源的前提下，本报告不声称具体市场规模，而采用 TAM/SAM/SOM 估算框架，帮助判断机会是否值得继续验证。
+          </p>
+          <div class="grid grid--3">
+            <div class="formula">
+              <span class="badge">TAM</span>
+              <strong>总可服务市场</strong>
+              <p>城市养宠家庭中存在外出照护需求的人群，覆盖寄养、上门喂养、遛狗、日托等服务。</p>
+              <code>TAM = 城市养宠家庭数 × 年均照护需求次数 × 平均客单价</code>
+            </div>
+            <div class="formula">
+              <span class="badge">SAM</span>
+              <strong>可触达市场</strong>
+              <p>目标城市或社区范围内，可通过小程序、内容平台和私域渠道触达的养宠家庭。</p>
+              <code>SAM = 目标城区养宠家庭数 × 可触达比例 × 年均照护需求次数 × 平均客单价</code>
+            </div>
+            <div class="formula">
+              <span class="badge">SOM</span>
+              <strong>可获得市场</strong>
+              <p>MVP 阶段能覆盖的若干社区、少量照护者和标准化服务品类。</p>
+              <code>SOM = 首批社区数 × 每社区可服务家庭数 × 转化率 × 年均需求次数 × 平均客单价</code>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>4. 数字化切入点</h2>
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>模块</th>
+                <th>解决的问题</th>
+                <th>产品价值</th>
+                <th>可观察指标</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>小程序预约</td>
+                <td>咨询分散、档期确认低效、价格和服务说明不统一</td>
+                <td>承接服务浏览、照护者选择、预约提交和订单确认</td>
+                <td>服务点击率、预约提交率、确认订单率</td>
+              </tr>
+              <tr>
+                <td>宠物档案</td>
+                <td>宠物习惯、禁忌、疫苗、应急联系人难沉淀</td>
+                <td>让一次预约变成可复用的照护信息资产</td>
+                <td>档案完善率、备注使用率、异常记录完整率</td>
+              </tr>
+              <tr>
+                <td>寄养日报</td>
+                <td>服务过程不可见，用户不在场焦虑强</td>
+                <td>通过图片、状态和日报提升过程可见性</td>
+                <td>日报查看率、用户追问次数、复购率</td>
+              </tr>
+              <tr>
+                <td>数据看板</td>
+                <td>渠道、转化、入住率和复购缺少统一判断</td>
+                <td>帮助商家从订单记录进入经营复盘</td>
+                <td>渠道确认率、入住率、服务结构、复购率</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>5. AI 应用机会</h2>
+          <div class="grid grid--2">
+            <div class="card">
+              <h3>AI 客服助手</h3>
+              <p>回答价格、疫苗、流程、安全等售前问题，降低重复沟通成本；涉及医疗、退款、争议时转人工。</p>
+            </div>
+            <div class="card">
+              <h3>AI 寄养日报</h3>
+              <p>把照护记录生成温暖、专业的用户反馈，提升过程可见性；发布前必须由商家确认。</p>
+            </div>
+            <div class="card">
+              <h3>AI 运营文案</h3>
+              <p>根据渠道、服务类型和目标用户生成朋友圈、小红书、微信群内容草稿。</p>
+            </div>
+            <div class="card">
+              <h3>AI 经营分析</h3>
+              <p>把模拟经营数据转化为“洞察 - 证据 - 建议”，用于辅助复盘而非自动决策。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>6. 风险边界与验证重点</h2>
+          <ul class="risk-list">
+            <li>宠物安全与医疗问题需要人工确认和专业边界，AI 不做诊断。</li>
+            <li>退款、赔付、责任争议不应由 AI 自动处理。</li>
+            <li>真实业务化前需要验证用户是否愿意为“附近照护 + 过程反馈”支付溢价。</li>
+            <li>需要验证上门喂猫、遛狗、日托/寄养中哪个更适合作为高频入口。</li>
+            <li>需要验证商家是否更需要 AI 经营分析，还是先需要规则化报表和异常提醒。</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">强信任服务</span>
+            <span class="tag">私域转化</span>
+            <span class="tag">过程可见性</span>
+            <span class="tag">AI 边界</span>
+            <span class="tag">经营复盘</span>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

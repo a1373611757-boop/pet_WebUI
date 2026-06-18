@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邻宠到家｜社区宠物照护平台产品作品集</title>
+  <style>
+    :root {
+      --cream: #fffaf3;
+      --sage: #abc8b8;
+      --deep: #1d3b34;
+      --deep-2: #102823;
+      --orange: #ed9a72;
+      --mint: #e8f3ed;
+      --pale: #f7f9f5;
+      --text: #263633;
+      --muted: #6b7c76;
+      --white: #ffffff;
+      --line: rgba(31, 61, 54, .10);
+      --line-strong: rgba(31, 61, 54, .20);
+      --shadow: 0 26px 80px rgba(31, 61, 54, .12);
+      --soft-shadow: 0 16px 44px rgba(31, 61, 54, .08);
+      --radius: 20px;
+      --small-radius: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(175, 203, 188, .32), transparent 30rem),
+        radial-gradient(circle at 88% 4%, rgba(242, 161, 123, .22), transparent 28rem),
+        linear-gradient(180deg, var(--cream) 0%, var(--pale) 48%, #fffaf2 100%);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, Helvetica, sans-serif;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    body.nav-elevated .site-header {
+      box-shadow: 0 14px 36px rgba(31, 61, 54, .12);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(31, 61, 54, .08);
+      background: rgba(255, 250, 243, .84);
+      backdrop-filter: blur(22px);
+      transition: box-shadow .24s ease, background .24s ease;
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 900;
+      color: var(--deep);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 14px;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--deep), #416e5c);
+      box-shadow: 0 16px 32px rgba(31, 61, 54, .22);
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.12;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+      color: #52635d;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-links a,
+    .nav-cta {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      padding: 0 11px;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--deep);
+      background: rgba(175, 203, 188, .28);
+    }
+
+    .nav-cta {
+      border: 0;
+      padding: 0 15px;
+      color: var(--cream);
+      background: var(--deep);
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(31, 61, 54, .18);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      padding: 108px 0;
+      scroll-margin-top: 92px;
+    }
+
+    .hero {
+      min-height: 760px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      padding: 112px 0 88px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 9% -16% auto auto;
+      width: 560px;
+      height: 560px;
+      border-radius: 44% 56% 54% 46%;
+      background: linear-gradient(135deg, rgba(175, 203, 188, .42), rgba(242, 161, 123, .22));
+      filter: blur(6px);
+      opacity: .72;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, .74fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 16px;
+      padding: 7px 12px;
+      border: 1px solid rgba(31, 61, 54, .14);
+      border-radius: 999px;
+      color: var(--deep);
+      background: rgba(255, 255, 255, .68);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: var(--deep);
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .hero h2 {
+      margin-bottom: 18px;
+      color: var(--deep);
+      font-size: clamp(25px, 3.2vw, 40px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: var(--deep);
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--deep);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.8vw, 21px);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 0 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag,
+    .mini-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag {
+      min-height: 34px;
+      padding: 0 12px;
+      color: var(--deep);
+      background: rgba(230, 243, 236, .9);
+      border: 1px solid rgba(31, 61, 54, .1);
+      font-size: 13px;
+    }
+
+    .mini-tag {
+      min-height: 28px;
+      padding: 0 10px;
+      color: #34554d;
+      background: rgba(175, 203, 188, .22);
+      font-size: 12px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 0 20px;
+      border: 1px solid rgba(31, 61, 54, .14);
+      background: rgba(255, 255, 255, .76);
+      color: var(--deep);
+      font-size: 14px;
+      font-weight: 900;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--soft-shadow);
+      background: var(--white);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--deep), #3f6b5f);
+      box-shadow: 0 16px 32px rgba(31, 61, 54, .2);
+    }
+
+    .button.warm {
+      border-color: transparent;
+      color: #4a2a1e;
+      background: linear-gradient(135deg, #ffd7bf, var(--orange));
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-item,
+    .card,
+    .panel,
+    .persona,
+    .flow-step,
+    .doc-card,
+    .metric-card,
+    .contribution-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .68));
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .meta-item {
+      padding: 18px;
+    }
+
+    .meta-item span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .meta-item strong {
+      color: var(--deep);
+      font-size: 15px;
+    }
+
+    .process-card {
+      padding: 30px;
+      border: 1px solid rgba(31, 61, 54, .16);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .7));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .process-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .process-list li {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .process-list span {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--cream);
+      background: var(--deep);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .48fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-head p,
+    .card p,
+    .panel p,
+    .persona p,
+    .doc-card p,
+    .metric-card p,
+    .contribution-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-5,
+    .grid-6 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .grid-6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .card,
+    .panel,
+    .persona,
+    .doc-card,
+    .metric-card,
+    .contribution-item {
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card::before,
+    .panel::before,
+    .persona::before,
+    .doc-card::before,
+    .metric-card::before,
+    .contribution-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(31, 61, 54, .22), transparent);
+    }
+
+    .card:hover,
+    .panel:hover,
+    .persona:hover,
+    .doc-card:hover,
+    .metric-card:hover,
+    .contribution-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(31, 61, 54, .22);
+      box-shadow: var(--shadow);
+    }
+
+    .doc-card .button,
+    .quick-card .button {
+      width: fit-content;
+      margin-top: 4px;
+    }
+
+    .card-number,
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 14px;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--deep), #5f8978);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .band {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .54), rgba(255, 255, 255, .24)),
+        rgba(230, 243, 236, .42);
+    }
+
+    .deep-panel {
+      padding: 34px;
+      border-radius: 28px;
+      color: var(--cream);
+      background:
+        linear-gradient(135deg, rgba(31, 61, 54, .96), rgba(38, 83, 73, .92)),
+        var(--deep);
+      box-shadow: var(--shadow);
+    }
+
+    .deep-panel h2,
+    .deep-panel h3,
+    .deep-panel p {
+      color: var(--cream);
+    }
+
+    .deep-panel p {
+      opacity: .88;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(320px, .7fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .plain-list,
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li,
+    .check-list li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .plain-list li::before,
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .74em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .check-list li::before {
+      background: var(--orange);
+    }
+
+    .jtbd-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .jtbd-card strong {
+      color: var(--deep);
+      font-size: 22px;
+    }
+
+    .persona {
+      display: grid;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--deep);
+      background: linear-gradient(135deg, var(--mint), #ffd8c4);
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    .persona-meta {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(170px, 1fr));
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .journey-card {
+      min-width: 170px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .journey-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--deep);
+      font-size: 18px;
+    }
+
+    .journey-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .ost {
+      display: grid;
+      gap: 18px;
+    }
+
+    .outcome {
+      padding: 24px;
+      border-radius: var(--radius);
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--deep), #477466);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .opportunity {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .opportunity ul,
+    .feature-column ul,
+    .roadmap-card ul,
+    .mvp-box ul,
+    .ai-card ul {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .positioning-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .positioning-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .positioning-row {
+      padding: 15px;
+      border-radius: var(--small-radius);
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .positioning-row strong {
+      color: #ffd8c4;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .feature-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-column {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .mvp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mvp-box {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .75);
+      border: 1px solid var(--line);
+    }
+
+    .mvp-box.must {
+      border-color: rgba(31, 61, 54, .22);
+      background: linear-gradient(180deg, rgba(230, 243, 236, .9), rgba(255, 255, 255, .82));
+    }
+
+    .mvp-box.later {
+      background: linear-gradient(180deg, rgba(255, 216, 196, .5), rgba(255, 255, 255, .82));
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .roadmap-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .user-flow {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(120px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .flow-step {
+      min-width: 120px;
+      padding: 16px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 900;
+      color: var(--deep);
+    }
+
+    .arrow {
+      display: none;
+    }
+
+    .status {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      margin: 8px 0 14px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--deep);
+      background: rgba(175, 203, 188, .28);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .doc-card {
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+    }
+
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--deep);
+      font-size: 22px;
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contribution-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .quick-card {
+      display: grid;
+      min-height: 210px;
+      align-content: space-between;
+    }
+
+    .final-section {
+      padding-bottom: 78px;
+    }
+
+    .final-card {
+      padding: 44px;
+      border-radius: 32px;
+      text-align: center;
+      color: var(--cream);
+      background:
+        linear-gradient(135deg, rgba(31, 61, 54, .98), rgba(78, 119, 104, .92)),
+        var(--deep);
+      box-shadow: var(--shadow);
+    }
+
+    .final-card h2,
+    .final-card p {
+      color: var(--cream);
+    }
+
+    .final-card p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: .88;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--cream);
+      background: var(--deep);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .22s ease, transform .22s ease;
+      font-weight: 900;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    footer {
+      padding: 32px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .68s ease, transform .68s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero .reveal {
+      animation: heroIn .78s ease both;
+    }
+
+    .hero .process-card {
+      animation-delay: .12s;
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .grid-6,
+      .journey,
+      .contribution-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-5,
+      .roadmap,
+      .dashboard-grid,
+      .ai-grid,
+      .quick-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .opportunity-grid,
+      .docs-grid,
+      .competitor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero-grid,
+      .section-head,
+      .split,
+      .positioning-grid,
+      .feature-map,
+      .mvp-grid,
+      .business-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 72px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      section {
+        padding: 68px 0;
+        scroll-margin-top: 130px;
+      }
+
+      .hero-meta,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .grid-5,
+      .grid-6,
+      .opportunity-grid,
+      .docs-grid,
+      .competitor-grid,
+      .dashboard-grid,
+      .ai-grid,
+      .quick-grid,
+      .contribution-grid,
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .journey,
+      .user-flow {
+        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .journey-card,
+      .flow-step {
+        min-width: 0;
+      }
+
+      .final-card,
+      .deep-panel {
+        padding: 28px;
+      }
+
+      .nav-links a,
+      .nav-cta {
+        min-height: 34px;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 46px;
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .doc-card .button,
+      .quick-card .button {
+        width: 100%;
+      }
+
+      .hero-meta {
+        gap: 10px;
+      }
+
+      .card,
+      .panel,
+      .persona,
+      .doc-card,
+      .metric-card,
+      .contribution-item {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="顶部导航栏">
+      <a class="brand" href="#overview" aria-label="邻宠到家项目首页">
+        <img class="brand-mark" src="assets/neighbor-pet-logo.png" alt="邻宠到家图标">
+        <span class="brand-text">
+          <span class="brand-title">邻宠到家</span>
+          <span class="brand-subtitle">Product Portfolio</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#overview">项目概览</a>
+        <a href="#problem">问题定义</a>
+        <a href="#jtbd">用户分析</a>
+        <a href="#solution">产品方案</a>
+        <a href="#mvp">MVP 路线图</a>
+        <a href="#demo">Demo 展示</a>
+        <a href="#data-ai">数据与 AI</a>
+        <a href="#contribution">我的贡献</a>
+        <button class="nav-cta" type="button" data-scroll="quick-view">3 分钟看懂项目</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">AI + 本地生活服务 + 宠物经济</p>
+          <h1>邻宠到家</h1>
+          <h2>社区宠物照护平台产品作品集</h2>
+          <p class="lead">面向城市养宠人群的上门喂养、社区寄养与日托接送服务平台。从需求洞察、产品设计、PRD 文档到小程序 Demo 的完整产品实践案例。</p>
+          <ul class="tags">
+            <li class="tag">AI 产品实践</li>
+            <li class="tag">本地生活服务</li>
+            <li class="tag">宠物经济</li>
+            <li class="tag">产品经理作品集</li>
+            <li class="tag">数据指标设计</li>
+          </ul>
+          <div class="actions">
+            <a class="button primary" href="#" data-scroll="highlights">查看项目亮点</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">体验小程序 Demo</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看 PRD 文档</a>
+            <a class="button warm" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养数字化服务竞品分析报告.html">查看竞品分析</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-item"><span>项目角色</span><strong>产品策划 / 需求分析 / 竞品研究 / PRD 撰写 / Demo 搭建</strong></div>
+            <div class="meta-item"><span>项目类型</span><strong>AI + 本地生活服务 + 宠物经济</strong></div>
+            <div class="meta-item"><span>项目产出</span><strong>产品网页、小程序 Demo、PRD、行业报告、竞品分析、数据看板、AI 功能演示</strong></div>
+            <div class="meta-item"><span>目标岗位</span><strong>AI 产品助理 / 数据产品助理 / 产品运营</strong></div>
+          </div>
+        </div>
+
+        <aside class="process-card reveal" aria-label="核心服务流程">
+          <h3>核心照护流程</h3>
+          <ol class="process-list">
+            <li><span>1</span><strong>用户产生照护需求</strong></li>
+            <li><span>2</span><strong>选择生活场景</strong></li>
+            <li><span>3</span><strong>匹配附近照护人</strong></li>
+            <li><span>4</span><strong>查看照护记录</strong></li>
+            <li><span>5</span><strong>完成评价与复购</strong></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Project Overview</p>
+            <h2>项目速览｜Project Overview</h2>
+          </div>
+          <p>项目以城市养宠人的临时照护需求为起点，形成从问题定义、用户分析、服务方案到原型验证的完整产品表达。</p>
+        </div>
+        <div class="grid-6">
+          <article class="card reveal"><span class="card-number">01</span><h3>项目定位</h3><p>社区型宠物照护服务平台，解决出差、加班、旅游、临时外出时的宠物照护问题。</p></article>
+          <article class="card reveal"><span class="card-number">02</span><h3>目标用户</h3><p>一二线城市年轻养宠人、独居上班族、情侣养宠家庭、短期出差人群。</p></article>
+          <article class="card reveal"><span class="card-number">03</span><h3>核心场景</h3><p>上门喂养、短期寄养、日托接送、遛狗陪伴、照护记录。</p></article>
+          <article class="card reveal"><span class="card-number">04</span><h3>核心产出</h3><p>产品网页、小程序 Demo、PRD、行业分析、竞品分析、数据看板、AI 功能演示。</p></article>
+          <article class="card reveal"><span class="card-number">05</span><h3>我的角色</h3><p>独立完成需求分析、产品结构设计、页面文案、功能规划与作品集搭建。</p></article>
+          <article class="card reveal"><span class="card-number">06</span><h3>使用工具</h3><p>ChatGPT / Codex / HTML / CSS / 小程序 TS + Less / Excel / 产品文档方法。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="background">
+      <div class="shell split">
+        <div class="panel reveal">
+          <p class="section-kicker">Market Opportunity</p>
+          <h2>为什么选择这个项目？</h2>
+          <p>随着城市养宠人群增加，宠物已经从“陪伴动物”变成家庭成员。但在真实生活中，养宠人经常遇到几个问题：出差时宠物无人照顾；加班时无法及时喂养和遛狗；传统宠物店寄养环境陌生，用户不放心；熟人帮忙不稳定，也缺少服务标准；用户希望知道宠物在照护期间是否安全、是否吃饭、是否排便、是否情绪稳定。</p>
+          <p style="margin-top:14px;">因此，我希望设计一个更接近“社区熟人照护 + 标准化服务记录”的宠物照护平台。</p>
+        </div>
+        <div class="panel reveal">
+          <h3>机会判断</h3>
+          <ul class="check-list">
+            <li>宠物服务正在从商品消费延伸到服务消费。</li>
+            <li>年轻养宠人更关注便利性和安全感。</li>
+            <li>传统宠物店寄养无法覆盖所有临时照护场景。</li>
+            <li>社区化、家庭式、上门式照护存在产品机会。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Problem Statement</p>
+            <h2>问题定义｜Problem Statement</h2>
+          </div>
+          <p>城市养宠人的临时照护需求并不只是“找一个服务者”，核心是可信任、低压力、可追踪。</p>
+        </div>
+        <div class="grid-5">
+          <article class="card reveal"><span class="card-number">01</span><h3>核心问题</h3><p>城市养宠人在出差、加班、临时外出时，缺少一种可信任、低压力、可追踪的宠物照护方式。</p></article>
+          <article class="card reveal"><span class="card-number">02</span><h3>目标用户</h3><p>一二线城市年轻养宠人，尤其是独居上班族、情侣养宠家庭、经常短途出差的人群。</p></article>
+          <article class="card reveal"><span class="card-number">03</span><h3>发生场景</h3><p>临时加班、周末短途旅行、节假日返乡、出差 1-3 天、宠物不适合送去宠物店寄养。</p></article>
+          <article class="card reveal"><span class="card-number">04</span><h3>问题影响</h3><p>用户焦虑、宠物照护不稳定、熟人帮忙不可持续、传统宠物店信任感不足。</p></article>
+          <article class="card reveal"><span class="card-number">05</span><h3>机会判断</h3><p>如果能把“附近照护人 + 标准服务流程 + 实时照护记录”结合起来，可以降低用户决策压力，提升复购可能。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="jtbd">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">User Analysis</p>
+            <h2>用户任务｜Jobs To Be Done</h2>
+          </div>
+          <p>从生活情境出发，用户真正想完成的是安心外出、快速托付和持续确认宠物状态。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card jtbd-card reveal"><span class="card-number">出差</span><strong>出差场景</strong><p>当我临时出差或外出时，我想找到一个可信任的人照顾我的宠物，这样我就可以安心处理自己的事情，而不用一直担心宠物是否安全。</p></article>
+          <article class="card jtbd-card reveal"><span class="card-number">加班</span><strong>加班场景</strong><p>当我加班无法回家时，我想快速预约附近的人上门喂养或遛狗，这样我可以减少临时找朋友帮忙的压力。</p></article>
+          <article class="card jtbd-card reveal"><span class="card-number">托付</span><strong>托付场景</strong><p>当我把宠物交给别人照顾时，我想看到照片、视频和照护记录，这样我可以确认宠物状态正常，并逐渐建立信任。</p></article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="band" id="persona">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Proto Persona</p>
+            <h2>用户画像｜Proto Persona</h2>
+          </div>
+          <p>三类用户画像覆盖上门喂养、遛狗日托和节假日寄养等主要场景。</p>
+        </div>
+        <div class="grid-3">
+          <article class="persona reveal"><div class="avatar">林</div><h3>林佳</h3><div class="persona-meta">27 岁｜上海｜互联网运营｜独居上班族</div><p><strong>宠物：</strong>一只 3 岁英短猫</p><p><strong>场景：</strong>经常周末短途旅行，猫不适合频繁搬动。</p><p><strong>痛点：</strong>不放心陌生人上门，也不想每次麻烦朋友。</p><p><strong>需求：</strong>稳定、可追踪、价格合理的上门喂养服务。</p></article>
+          <article class="persona reveal"><div class="avatar">哲</div><h3>阿哲 & 小予</h3><div class="persona-meta">29 岁｜上海｜双职工情侣</div><p><strong>宠物：</strong>一只中型犬</p><p><strong>场景：</strong>工作日加班时无法按时遛狗。</p><p><strong>痛点：</strong>狗狗精力旺盛，长时间不遛容易焦虑。</p><p><strong>需求：</strong>附近可预约、服务时间稳定的遛狗和日托服务。</p></article>
+          <article class="persona reveal"><div class="avatar">王</div><h3>王楠</h3><div class="persona-meta">25 岁｜上海｜新上海人</div><p><strong>宠物：</strong>一只猫</p><p><strong>场景：</strong>春节、国庆返乡 3-7 天。</p><p><strong>痛点：</strong>宠物店笼养环境不放心，节假日临时找人难。</p><p><strong>需求：</strong>节假日可预约、带照护记录、服务标准清晰的照护方案。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Customer Journey Map</p>
+            <h2>用户旅程｜Customer Journey Map</h2>
+          </div>
+          <p>用户从焦虑到放心的变化，决定了产品需要在哪些触点建立信任。</p>
+        </div>
+        <div class="journey">
+          <article class="journey-card reveal"><strong>产生需求</strong><span>用户行为：用户发现自己要出差 / 加班</span><span>用户情绪：焦虑</span><span>关键痛点：宠物没人照顾</span><span>产品机会：首页场景入口</span></article>
+          <article class="journey-card reveal"><strong>寻找方案</strong><span>用户行为：问朋友 / 搜宠物店 / 看平台</span><span>用户情绪：犹豫</span><span>关键痛点：不知道谁可信</span><span>产品机会：照护人资料与评价</span></article>
+          <article class="journey-card reveal"><strong>下单预约</strong><span>用户行为：填写时间、地址、宠物信息</span><span>用户情绪：担心</span><span>关键痛点：信息填写复杂</span><span>产品机会：宠物档案复用</span></article>
+          <article class="journey-card reveal"><strong>服务进行</strong><span>用户行为：服务者上门 / 寄养 / 遛狗</span><span>用户情绪：紧张</span><span>关键痛点：不知道宠物状态</span><span>产品机会：实时照护记录</span></article>
+          <article class="journey-card reveal"><strong>服务完成</strong><span>用户行为：查看记录、确认完成</span><span>用户情绪：放心</span><span>关键痛点：评价反馈成本高</span><span>产品机会：一键评价与复购</span></article>
+          <article class="journey-card reveal"><strong>下次复购</strong><span>用户行为：再次遇到外出需求</span><span>用户情绪：轻松</span><span>关键痛点：不想重新填写</span><span>产品机会：常用照护人和历史订单</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="opportunity">
+      <div class="shell ost">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Opportunity Solution Tree</p>
+            <h2>机会解决方案树｜Opportunity Solution Tree</h2>
+          </div>
+          <p>我没有直接堆功能，而是先从业务目标出发，拆解用户机会点，再推导对应的产品解决方案。</p>
+        </div>
+        <div class="outcome reveal"><strong>业务目标：</strong>提升城市养宠人在临时外出场景下的照护服务转化率与复购率。</div>
+        <div class="opportunity-grid">
+          <article class="opportunity reveal"><h3>用户不知道该选哪种服务</h3><ul><li>场景化首页入口</li><li>AI 服务推荐</li><li>新手照护问答</li></ul></article>
+          <article class="opportunity reveal"><h3>用户不信任陌生照护人</h3><ul><li>照护人实名认证</li><li>服务评分与历史评价</li><li>照护前沟通确认</li></ul></article>
+          <article class="opportunity reveal"><h3>用户担心服务过程不可见</h3><ul><li>图文照护记录</li><li>时间线打卡</li><li>异常状态提醒</li></ul></article>
+          <article class="opportunity reveal"><h3>用户复购成本高</h3><ul><li>宠物档案复用</li><li>常用照护人</li><li>周期照护套餐</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="positioning">
+      <div class="shell positioning-grid">
+        <div class="deep-panel reveal">
+          <p class="section-kicker">Positioning Statement</p>
+          <h2>产品定位｜Positioning Statement</h2>
+          <p>邻宠到家是一个面向城市养宠人群的社区宠物照护平台，用户可以根据出差、加班、旅游、临时外出等生活场景，选择上门喂养、社区寄养、日托接送、遛狗陪伴等服务，并通过照护记录实时了解宠物状态。</p>
+        </div>
+        <div class="deep-panel reveal">
+          <h3>定位拆解</h3>
+          <div class="positioning-list">
+            <div class="positioning-row"><strong>For：</strong>一二线城市中有临时照护需求的年轻养宠人</div>
+            <div class="positioning-row"><strong>Who：</strong>在出差、加班、旅游、返乡时无法稳定照顾宠物</div>
+            <div class="positioning-row"><strong>Our Product：</strong>提供上门喂养、社区寄养、日托接送和照护记录</div>
+            <div class="positioning-row"><strong>Unlike：</strong>传统宠物店寄养或临时找熟人帮忙</div>
+            <div class="positioning-row"><strong>Value：</strong>更近、更灵活、更可追踪，也更有信任感</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="solution">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Product Solution</p>
+            <h2>产品方案｜从生活场景进入宠物照护服务</h2>
+          </div>
+          <p>邻宠到家将宠物照护从单次交易变成可追踪、可复用、可积累信任的服务体验。</p>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal"><span class="card-number">01</span><h3>场景化服务选择</h3><p>用户不是先选择复杂服务，而是先选择“我现在遇到了什么情况”。</p></article>
+          <article class="card reveal"><span class="card-number">02</span><h3>社区化照护匹配</h3><p>优先匹配附近照护人，降低距离成本，提高信任感。</p></article>
+          <article class="card reveal"><span class="card-number">03</span><h3>标准化照护流程</h3><p>服务前确认需求，服务中记录状态，服务后评价反馈。</p></article>
+          <article class="card reveal"><span class="card-number">04</span><h3>可视化照护记录</h3><p>通过照片、文字、视频、时间线记录，让用户获得安全感。</p></article>
+        </div>
+        <div class="services reveal">
+          <span class="tag">上门喂养</span><span class="tag">社区寄养</span><span class="tag">日托接送</span><span class="tag">遛狗陪伴</span><span class="tag">节假日照护</span><span class="tag">照护记录</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="feature-map">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Feature Map</p>
+            <h2>功能地图｜用户端、服务者端、平台端</h2>
+          </div>
+          <p>功能结构围绕三个角色展开，保证前台体验、服务履约和平台管理形成闭环。</p>
+        </div>
+        <div class="feature-map">
+          <article class="feature-column reveal"><h3>用户端功能</h3><ul><li>首页场景入口：根据“我要出差”“今天加班”“临时外出”“需要长期照护”等场景进入服务。</li><li>服务预约：选择服务类型、时间、地址、宠物信息和特殊要求。</li><li>照护人匹配：查看附近照护人资料、评分、服务经验、可服务时间。</li><li>宠物档案：记录宠物年龄、品种、性格、饮食习惯、过敏信息、注意事项。</li><li>照护记录：服务者上传喂食、饮水、排便、遛狗、情绪状态等记录。</li><li>订单与评价：用户确认服务完成，并进行评价和复购。</li></ul></article>
+          <article class="feature-column reveal"><h3>服务者端功能</h3><ul><li>接单大厅：查看附近订单、服务时间、宠物类型和服务要求。</li><li>服务日程：管理当天和未来的照护安排。</li><li>服务打卡：到达打卡、开始服务、上传照片、填写照护记录。</li><li>收入明细：查看订单收入、结算状态和服务评分。</li></ul></article>
+          <article class="feature-column reveal"><h3>平台端功能</h3><ul><li>服务分类管理：管理上门喂养、寄养、日托、遛狗等服务。</li><li>照护人审核：审核身份、经验、服务范围和用户评价。</li><li>订单管理：跟踪订单状态、异常订单和售后问题。</li><li>数据看板：查看订单量、复购率、服务评分、热门区域、热门服务类型。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="mvp">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">MVP Priority</p>
+            <h2>MVP 范围与优先级｜先验证最核心的信任与下单链路</h2>
+          </div>
+          <p>如果真实推进这个项目，我不会一开始就做所有功能，而是先验证用户是否愿意为可信任宠物照护下单。</p>
+        </div>
+        <div class="mvp-grid">
+          <article class="mvp-box must reveal"><h3>V1.0 MVP 必须做</h3><ul><li>首页场景入口</li><li>服务预约</li><li>宠物档案</li><li>照护人列表</li><li>订单确认</li><li>照护记录</li><li>评价反馈</li></ul></article>
+          <article class="mvp-box later reveal"><h3>暂不做</h3><ul><li>复杂会员体系</li><li>完整 AI 客服</li><li>宠物保险</li><li>社区内容</li><li>宠物用品商城</li><li>多城市扩张</li></ul></article>
+        </div>
+        <div class="panel reveal" style="margin-top:16px;"><h3>判断逻辑</h3><ul class="check-list"><li>先验证用户需求是否真实。</li><li>先验证用户是否愿意下单。</li><li>先验证照护记录是否能提升信任。</li><li>先验证社区范围内供需是否可匹配。</li></ul></div>
+
+      </div>
+    </section>
+
+    <section class="band" id="roadmap">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Roadmap</p>
+            <h2>版本路线图｜从 MVP 到 AI 产品延展</h2>
+          </div>
+          <p>版本规划从下单链路开始，再逐步提升效率、信任、智能化和平台增长能力。</p>
+        </div>
+        <div class="roadmap">
+          <article class="roadmap-card reveal"><h3>V1.0 MVP</h3><p>验证下单链路</p><ul><li>场景入口</li><li>服务预约</li><li>宠物档案</li><li>照护人列表</li><li>照护记录</li><li>评价反馈</li></ul></article>
+          <article class="roadmap-card reveal"><h3>V1.1</h3><p>提升下单效率</p><ul><li>宠物档案复用</li><li>常用地址</li><li>常用照护人</li><li>预约提醒</li></ul></article>
+          <article class="roadmap-card reveal"><h3>V1.2</h3><p>提升信任感</p><ul><li>照护人认证</li><li>服务过程打卡</li><li>图文 / 视频记录</li><li>异常状态提醒</li></ul></article>
+          <article class="roadmap-card reveal"><h3>V2.0</h3><p>引入 AI 能力</p><ul><li>AI 服务推荐</li><li>AI 宠物档案摘要</li><li>AI 照护报告生成</li><li>AI 客服助手</li></ul></article>
+          <article class="roadmap-card reveal"><h3>V3.0</h3><p>平台化增长</p><ul><li>社区试点</li><li>会员套餐</li><li>B 端合作</li><li>数据看板</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Core User Flow</p>
+            <h2>核心流程｜从“我今天没法照顾宠物”到“我知道它被照顾得很好”</h2>
+          </div>
+          <p>流程设计围绕一个关键目标展开：让用户在托付前、服务中、完成后都能持续获得确定感。</p>
+        </div>
+        <div class="user-flow">
+          <div class="flow-step reveal">用户产生照护需求</div>
+          <div class="flow-step reveal">进入首页选择生活场景</div>
+          <div class="flow-step reveal">填写宠物信息和服务时间</div>
+          <div class="flow-step reveal">系统推荐服务类型</div>
+          <div class="flow-step reveal">匹配附近照护人</div>
+          <div class="flow-step reveal">确认订单并支付</div>
+          <div class="flow-step reveal">服务者上门 / 接送 / 寄养</div>
+          <div class="flow-step reveal">上传照护记录</div>
+          <div class="flow-step reveal">用户确认完成并评价</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="demo">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Demo Showcase</p>
+            <h2>Demo 展示｜从想法到可展示原型</h2>
+          </div>
+          <p>项目成果覆盖静态作品集、移动端体验、视频脚本与 H5 预约流程，形成面试现场可以连续展示的交付链路。</p>
+        </div>
+        <div class="grid-4">
+          <article class="doc-card reveal"><div><span class="icon">Web</span><h3>产品网页</h3><p>呈现服务定位、照护场景、信任机制和预约转化路径。</p><span class="status">已完成</span></div><a class="button" href="#overview">打开产品网页</a></article>
+          <article class="doc-card reveal"><div><span class="icon">Mini</span><h3>小程序 Demo</h3><p>基于 TS + Less 模板搭建，模拟预约、服务选择、宠物档案和订单确认流程。</p><span class="status">可演示</span></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">查看小程序 Demo</a></article>
+          <article class="doc-card reveal"><div><span class="icon">Video</span><h3>演示视频</h3><p>用 30 秒竖版叙事呈现用户问题、服务方案和核心功能。</p><span class="status">已完成</span></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/videos/neighbor-pet-home-promo-9x16.mp4">观看演示视频</a></article>
+          <article class="doc-card reveal"><div><span class="icon">AI</span><h3>AI 功能演示中心</h3><p>展示 AI 客服、寄养日报、运营文案和经营分析助手的业务化设计。</p><span class="status">可演示</span></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#ai">查看 AI 演示</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Document Center</p>
+            <h2>文档中心｜不只是 Demo，而是一套完整产品材料</h2>
+          </div>
+          <p>PRD、行业报告、竞品分析和数据看板共同呈现从产品定义到经营判断的思考过程。</p>
+        </div>
+        <div class="docs-grid">
+          <article class="doc-card reveal"><div><span class="icon">PRD</span><h3>PRD 产品需求文档</h3><p>产品目标 / 用户故事 / 功能列表 / 流程图 / 版本规划</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看 PRD</a></article>
+          <article class="doc-card reveal"><div><span class="icon">IND</span><h3>行业分析报告</h3><p>市场趋势 / 用户变化 / 服务机会 / 商业判断</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养行业机会分析报告.html">查看行业报告</a></article>
+          <article class="doc-card reveal"><div><span class="icon">CMP</span><h3>竞品分析报告</h3><p>Wild One / Fable / Catit / 国内宠物服务平台</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养数字化服务竞品分析报告.html">查看竞品分析</a></article>
+          <article class="doc-card reveal"><div><span class="icon">DAT</span><h3>数据看板方案</h3><p>订单 GMV / 复购率 / 用户留存 / 服务评分 / 区域分布</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#dashboard">查看数据看板</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="industry">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Industry & Competitor</p>
+            <h2>行业与竞品摘要｜从宠物服务到生活方式产品</h2>
+          </div>
+          <p>宠物行业正在从“商品消费”转向“服务消费”和“情绪价值消费”。年轻养宠人群更关注宠物陪伴、服务便利性和照护安全感。相比传统宠物店寄养，社区化、家庭式、上门式照护更贴近真实生活需求。</p>
+        </div>
+        <div class="competitor-grid">
+          <article class="card reveal"><span class="card-number">W</span><h3>Wild One</h3><p>启发点：统一的高饱和视觉系统，不只是卖产品，而是卖生活方式套装。</p></article>
+          <article class="card reveal"><span class="card-number">F</span><h3>Fable</h3><p>启发点：把宠物用品家居化，降低传统宠物用品的工具感。</p></article>
+          <article class="card reveal"><span class="card-number">C</span><h3>Catit</h3><p>启发点：通过场景分类帮助用户快速找到适合自己的解决方案。</p></article>
+          <article class="card reveal"><span class="card-number">L</span><h3>国内本地生活平台</h3><p>启发点：交易效率高，但在宠物专业感、照护记录和信任机制上仍有提升空间。</p></article>
+        </div>
+        <div class="panel reveal" style="margin-top:16px;"><h3>差异化定位</h3><p>邻宠到家的重点不是“堆功能”，而是把宠物照护服务重新包装成一个更有信任感、更接近家庭生活场景的服务体验。</p></div>
+      </div>
+    </section>
+
+    <section id="metrics">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Data Metrics</p>
+            <h2>数据指标体系｜如果上线，如何判断产品是否健康？</h2>
+          </div>
+          <p>数据指标围绕用户增长、订单质量、服务体验、区域供需和宠物特征展开。</p>
+        </div>
+        <div class="dashboard-grid">
+          <article class="metric-card reveal"><strong>用户指标</strong><p>注册用户数 / 下单用户数 / 新老用户占比 / 复购率</p></article>
+          <article class="metric-card reveal"><strong>订单指标</strong><p>订单量 / GMV / 客单价 / 取消率 / 完成率</p></article>
+          <article class="metric-card reveal"><strong>服务指标</strong><p>热门服务类型 / 平均服务时长 / 服务评分 / 投诉率</p></article>
+          <article class="metric-card reveal"><strong>区域指标</strong><p>热门小区 / 服务半径 / 订单密度 / 供需匹配情况</p></article>
+          <article class="metric-card reveal"><strong>宠物指标</strong><p>猫狗占比 / 宠物年龄 / 特殊照护需求占比</p></article>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="data-ai">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">AI Extension</p>
+            <h2>AI 功能延展｜让照护服务更智能、更标准化</h2>
+          </div>
+          <p>AI 能力围绕服务推荐、档案理解、照护记录、异常提醒和客服问答展开，重点提升标准化与效率。</p>
+        </div>
+        <div class="ai-grid">
+          <article class="card reveal"><span class="card-number">AI</span><h3>AI 服务推荐</h3><p>根据用户输入的场景，例如“我要出差三天，家里有一只猫”，推荐合适的照护方案。</p></article>
+          <article class="card reveal"><span class="card-number">AI</span><h3>AI 宠物档案摘要</h3><p>自动整理宠物饮食习惯、性格、注意事项，方便服务者快速理解。</p></article>
+          <article class="card reveal"><span class="card-number">AI</span><h3>AI 照护记录生成</h3><p>服务者上传照片和简单描述后，AI 辅助生成标准化照护报告。</p></article>
+          <article class="card reveal"><span class="card-number">AI</span><h3>AI 异常提醒</h3><p>根据饮食、排便、精神状态等记录，提示用户可能存在的异常情况。</p></article>
+          <article class="card reveal"><span class="card-number">AI</span><h3>AI 客服助手</h3><p>回答服务价格、预约流程、取消规则、宠物照护注意事项等问题。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="business">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Business & Growth</p>
+            <h2>商业模式与增长策略｜从社区试点到平台化扩张</h2>
+          </div>
+          <p>商业思路从社区密度和服务信任开始，逐步延展到会员、增值服务和 B 端合作。</p>
+        </div>
+        <div class="business-grid">
+          <div class="panel reveal"><h3>商业模式</h3><div class="grid-2" style="margin-top:14px;"><article class="card"><h3>平台抽佣</h3><p>从每笔照护订单中收取服务佣金。</p></article><article class="card"><h3>会员服务</h3><p>为高频用户提供月度照护套餐、专属照护人、优先预约等权益。</p></article><article class="card"><h3>增值服务</h3><p>包括宠物用品、洗护、保险、健康咨询、节假日寄养套餐等。</p></article><article class="card"><h3>B 端合作</h3><p>与宠物店、宠物医院、社区物业、宠物用品品牌合作。</p></article></div></div>
+          <div class="panel reveal"><h3>增长思路</h3><div class="grid-2" style="margin-top:14px;"><article class="card"><h3>从社区切入</h3><p>优先选择养宠密度高、年轻租住人群多的小区试点。</p></article><article class="card"><h3>用信任降低转化门槛</h3><p>展示照护人资料、真实评价、服务记录和平台保障。</p></article><article class="card"><h3>用照护记录促进复购</h3><p>每次服务后沉淀宠物档案，让用户下次预约更方便。</p></article><article class="card"><h3>用内容建立品牌心智</h3><p>围绕出差养宠、加班遛狗、猫咪独处、狗狗日托等场景做内容传播。</p></article></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contribution">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">My Contribution</p>
+            <h2>我的个人贡献｜从 0 到 1 完成产品项目闭环</h2>
+          </div>
+          <p>在这个项目中，我独立完成了从 0 到 1 的产品构思与作品集搭建。</p>
+        </div>
+        <div class="contribution-grid">
+          <article class="contribution-item reveal"><h3>需求洞察</h3><p>从城市养宠人的出差、加班、短期外出等真实场景中提炼需求。</p></article>
+          <article class="contribution-item reveal"><h3>产品定义</h3><p>确定“社区宠物照护平台”的产品定位，明确目标用户、核心场景和服务边界。</p></article>
+          <article class="contribution-item reveal"><h3>功能规划</h3><p>设计用户端、服务者端和平台端的核心功能结构。</p></article>
+          <article class="contribution-item reveal"><h3>PRD 撰写</h3><p>整理产品背景、用户故事、功能需求、业务流程和版本规划。</p></article>
+          <article class="contribution-item reveal"><h3>竞品分析</h3><p>分析国内外宠物服务和宠物品牌网站，提炼视觉、服务和商业模式启发。</p></article>
+          <article class="contribution-item reveal"><h3>Demo 搭建</h3><p>使用 AI 工具辅助完成 HTML 页面、小程序 Demo 和项目展示材料。</p></article>
+          <article class="contribution-item reveal"><h3>数据与 AI 思考</h3><p>设计数据看板指标，并延展 AI 服务推荐、照护报告生成等功能。</p></article>
+        </div>
+        <div class="panel reveal" style="margin-top:16px;"><p>这个项目的目标不是证明我已经完成了一个成熟商业产品，而是展示我能围绕一个真实场景，完成从问题发现、产品设计、文档表达、Demo 搭建到商业思考的完整闭环。</p></div>
+      </div>
+    </section>
+
+    <section class="band" id="quick-view">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Quick Review</p>
+            <h2>面试官快速查看｜3 分钟看懂这个项目</h2>
+          </div>
+          <p>按照产品面试的高频追问路径，快速进入项目定位、需求文档、原型体验、竞品判断和数据 AI 方案。</p>
+        </div>
+        <div class="quick-grid">
+          <article class="doc-card quick-card reveal"><div><span class="icon">01</span><h3>项目概览</h3><p>定位、目标用户、核心场景和交付成果。</p></div><a class="button" href="#overview">查看项目概览</a></article>
+          <article class="doc-card quick-card reveal"><div><span class="icon">02</span><h3>PRD 文档</h3><p>需求背景、功能结构、流程设计和版本规划。</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看 PRD</a></article>
+          <article class="doc-card quick-card reveal"><div><span class="icon">03</span><h3>小程序 Demo</h3><p>预约、宠物档案、订单确认和服务记录流程。</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">查看 Demo</a></article>
+          <article class="doc-card quick-card reveal"><div><span class="icon">04</span><h3>竞品分析</h3><p>从国内外宠物品牌和本地生活平台提炼差异化机会。</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养数字化服务竞品分析报告.html">查看竞品分析</a></article>
+          <article class="doc-card quick-card reveal"><div><span class="icon">05</span><h3>数据与 AI 方案</h3><p>经营指标、AI 客服、日报生成和服务推荐。</p></div><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#dashboard">查看数据与 AI</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section" id="summary">
+      <div class="shell">
+        <div class="final-card reveal">
+          <h2>从真实生活问题，到可展示的产品方案</h2>
+          <p>通过邻宠到家项目，我完整实践了从需求洞察、产品定义、功能规划、竞品分析、PRD 撰写、Demo 搭建到数据与 AI 功能延展的产品设计流程。</p>
+          <p>这个项目展示了我将真实生活问题转化为产品方案的能力，也展示了我使用 AI 工具提升项目落地效率的能力。</p>
+          <div class="actions" style="justify-content:center;">
+            <a class="button primary" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看完整 PRD</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">查看项目 Demo</a>
+            <a class="button warm" href="#">查看我的简历</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-top" type="button" aria-label="返回顶部">↑</button>
+
+  <footer>
+    <div class="shell">© 2026 邻宠到家 Product Portfolio. Designed for product interviews.</div>
+  </footer>
+
+  <script>
+    const headerLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const header = document.querySelector('.site-header');
+    const backTop = document.querySelector('.back-top');
+
+    function scrollToId(id) {
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('[data-scroll]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        scrollToId(item.dataset.scroll);
+      });
+    });
+
+    headerLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        headerLinks.forEach((item) => item.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const elevated = window.scrollY > 12;
+      document.body.classList.toggle('nav-elevated', elevated);
+      backTop.classList.toggle('visible', window.scrollY > 560);
+    }, { passive: true });
+
+    backTop.addEventListener('click', () => {
+      document.getElementById('overview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
+
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navObserver = new IntersectionObserver((entries) => {
+      const active = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!active) return;
+      headerLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === '#' + active.target.id);
+      });
+    }, { rootMargin: '-28% 0px -58% 0px', threshold: [0.1, 0.25, 0.45] });
+
+    sections.forEach((section) => navObserver.observe(section));
+  </script>
+</body>
+</html>

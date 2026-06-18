@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #071d1a;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-placeholder" data-composition-id="main-placeholder" data-start="0" data-duration="30" data-width="1080" data-height="1920"></div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main-placeholder"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

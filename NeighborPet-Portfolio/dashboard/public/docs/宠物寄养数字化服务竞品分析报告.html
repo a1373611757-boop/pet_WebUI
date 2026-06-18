@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宠物寄养数字化服务竞品分析报告</title>
+    <style>
+      :root {
+        color: #1f2d2b;
+        background: #faf7f0;
+        --primary: #0f766e;
+        --muted: #66736f;
+        --border: #e6ded2;
+        --gold: #d6a85a;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Microsoft YaHei", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(250, 247, 240, 0.96)),
+          radial-gradient(circle at 12% 8%, rgba(15, 118, 110, 0.1), transparent 34%),
+          #faf7f0;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .report-shell {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 42px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 46px rgba(58, 48, 36, 0.08);
+      }
+
+      .kicker,
+      .tag,
+      .badge {
+        display: inline-flex;
+        border: 1px solid rgba(15, 118, 110, 0.16);
+        border-radius: 999px;
+        color: #0b5f59;
+        background: rgba(236, 250, 246, 0.9);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .kicker {
+        margin-bottom: 18px;
+        padding: 7px 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .badge {
+        padding: 5px 9px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin-bottom: 12px;
+        color: #1f2d2b;
+        font-size: 38px;
+        line-height: 1.2;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        color: #1f2d2b;
+        font-size: 26px;
+        line-height: 1.24;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        color: #1f2d2b;
+        font-size: 17px;
+      }
+
+      .lead,
+      .section > p,
+      .node span,
+      .insight p,
+      .card p,
+      .matrix td,
+      li {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .lead {
+        max-width: 850px;
+        margin-bottom: 26px;
+        font-size: 16px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        border: 1px solid var(--primary);
+        border-radius: 999px;
+        padding: 0 16px;
+        color: #fff;
+        background: var(--primary);
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .button--secondary {
+        color: #765421;
+        border-color: rgba(214, 168, 90, 0.42);
+        background: rgba(255, 249, 238, 0.88);
+      }
+
+      .section {
+        margin-top: 28px;
+        border-top: 1px solid var(--border);
+        padding-top: 28px;
+      }
+
+      .ecosystem {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr 1fr 1.08fr 1fr;
+        gap: 14px;
+        align-items: stretch;
+        margin-top: 22px;
+      }
+
+      .stage {
+        position: relative;
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .stage:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -17px;
+        top: 50%;
+        z-index: 2;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        color: var(--primary);
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 20px;
+        text-align: center;
+      }
+
+      .stage h3 {
+        margin: 0;
+        color: #1f2d2b;
+        font-size: 16px;
+      }
+
+      .node {
+        border: 1px solid rgba(15, 118, 110, 0.14);
+        border-radius: 14px;
+        padding: 13px;
+        background: rgba(236, 250, 246, 0.72);
+      }
+
+      .node strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #1f2d2b;
+        font-size: 14px;
+      }
+
+      .node span {
+        display: block;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .node--gold {
+        border-color: rgba(214, 168, 90, 0.34);
+        background: rgba(255, 249, 238, 0.9);
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .grid--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .card,
+      .insight,
+      .matrix {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .card,
+      .insight {
+        padding: 16px;
+      }
+
+      .card p,
+      .insight p {
+        margin-bottom: 0;
+      }
+
+      .matrix {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        margin-top: 18px;
+      }
+
+      .matrix th,
+      .matrix td {
+        border-bottom: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        padding: 13px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .matrix th {
+        color: #1f2d2b;
+        background: rgba(236, 250, 246, 0.82);
+        font-weight: 900;
+      }
+
+      .matrix tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .matrix th:last-child,
+      .matrix td:last-child {
+        border-right: 0;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .tag {
+        padding: 6px 9px;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+        }
+
+        .report-shell {
+          box-shadow: none;
+          border: 0;
+          padding: 24px;
+        }
+
+        .actions {
+          display: none;
+        }
+
+        .section {
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .ecosystem,
+        .grid--3 {
+          grid-template-columns: 1fr;
+        }
+
+        .stage:not(:last-child)::after {
+          content: "↓";
+          right: 50%;
+          top: auto;
+          bottom: -22px;
+          transform: translateX(50%);
+        }
+      }
+
+      @media (max-width: 680px) {
+        main {
+          width: min(100% - 24px, 1180px);
+          padding: 24px 0;
+        }
+
+        .report-shell {
+          padding: 22px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="report-shell">
+        <span class="kicker">Competitive Analysis</span>
+        <h1>宠物寄养数字化服务竞品分析报告</h1>
+        <p class="lead">
+          本报告基于“邻宠到家”项目案例页与作品集总览生成，聚焦宠物寄养数字化服务的竞争生态、主要玩家类型、差异化机会与产品切入点。报告中的生态图已由 Mermaid 文本重绘为可视化流程图，便于网页阅读和 PDF 导出。
+        </p>
+        <div class="actions">
+          <a class="button" href="宠物寄养数字化服务竞品分析报告.pdf">查看 PDF</a>
+          <a class="button button--secondary" href="../">返回项目资源目录</a>
+        </div>
+
+        <section class="section" aria-labelledby="ecosystem-title">
+          <h2 id="ecosystem-title">1. 竞品生态图</h2>
+          <p>
+            宠物寄养服务的竞争不只发生在单一平台中，而是横跨本地生活平台、内容种草平台和微信私域。用户从搜索、发现、预约、交易到服务反馈，会在多个渠道之间切换。
+          </p>
+
+          <div class="ecosystem" aria-label="宠物寄养竞品生态流程图">
+            <div class="stage">
+              <h3>宠主需求</h3>
+              <div class="node node--gold">
+                <strong>触发场景</strong>
+                <span>出差 / 旅行 / 节假日 / 临时照护</span>
+              </div>
+            </div>
+
+            <div class="stage">
+              <h3>搜索与发现</h3>
+              <div class="node">
+                <strong>美团 / 大众点评</strong>
+                <span>本地生活平台，偏附近服务发现、评价与交易承接</span>
+              </div>
+              <div class="node">
+                <strong>小红书 / 抖音</strong>
+                <span>内容种草平台，偏环境展示、口碑影响与决策启发</span>
+              </div>
+              <div class="node">
+                <strong>微信私域</strong>
+                <span>朋友圈 / 社群 / 熟人推荐，偏信任关系和复购维护</span>
+              </div>
+            </div>
+
+            <div class="stage">
+              <h3>预约与交易</h3>
+              <div class="node node--gold">
+                <strong>交易承接</strong>
+                <span>咨询、确认档期、报价、宠物信息、支付与预约确认</span>
+              </div>
+            </div>
+
+            <div class="stage">
+              <h3>服务供给</h3>
+              <div class="node">
+                <strong>线下宠物店 / 宠物酒店</strong>
+                <span>空间与标准化服务较强，适合集中寄养场景</span>
+              </div>
+              <div class="node">
+                <strong>家庭式寄养</strong>
+                <span>强调家庭环境和陪伴感，信任建立更依赖内容与口碑</span>
+              </div>
+              <div class="node">
+                <strong>上门喂养 / 遛狗</strong>
+                <span>适合短期外出和低搬迁成本场景，过程反馈更关键</span>
+              </div>
+              <div class="node">
+                <strong>个人照护者</strong>
+                <span>供给灵活，但服务标准、履约记录与风险边界需要沉淀</span>
+              </div>
+            </div>
+
+            <div class="stage">
+              <h3>反馈与复购</h3>
+              <div class="node node--gold">
+                <strong>服务记录</strong>
+                <span>照片、签到、日报、评价、异常记录</span>
+              </div>
+              <div class="node node--gold">
+                <strong>私域运营</strong>
+                <span>复购提醒、节假日预约、老客维护、内容转化</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>2. 主要玩家类型对比</h2>
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>玩家类型</th>
+                <th>典型优势</th>
+                <th>主要短板</th>
+                <th>邻宠到家的机会</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>本地生活平台</td>
+                <td>附近发现、评价体系、交易心智较成熟</td>
+                <td>服务过程反馈和宠物档案沉淀不足</td>
+                <td>补足预约后履约反馈和复购管理</td>
+              </tr>
+              <tr>
+                <td>内容种草平台</td>
+                <td>环境展示、体验分享、口碑传播强</td>
+                <td>交易承接、档期确认和服务记录不标准</td>
+                <td>把内容线索转为结构化预约和档案</td>
+              </tr>
+              <tr>
+                <td>微信私域</td>
+                <td>熟人信任、老客维护和复购触达强</td>
+                <td>咨询、订单、宠物信息和反馈分散</td>
+                <td>提供轻量小程序承接和数据沉淀</td>
+              </tr>
+              <tr>
+                <td>线下宠物店 / 酒店</td>
+                <td>空间、人员和线下服务能力较稳定</td>
+                <td>线上预约体验和经营分析能力参差</td>
+                <td>提供看板、日报、AI 文案等数字化增强</td>
+              </tr>
+              <tr>
+                <td>个人照护者</td>
+                <td>灵活、亲近、可服务附近社区</td>
+                <td>标准化、风控和履约记录弱</td>
+                <td>通过档案、签到、日报和评价提升可信度</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>3. 关键观察</h2>
+          <div class="grid grid--3">
+            <div class="insight">
+              <h3>信任机制是核心差异</h3>
+              <p>宠物寄养决策高度依赖环境展示、服务记录、评价、熟人推荐和过程反馈。</p>
+            </div>
+            <div class="insight">
+              <h3>交易链路分散</h3>
+              <p>内容平台负责种草，本地生活平台负责发现，微信私域负责咨询和复购，商家需要更统一的承接工具。</p>
+            </div>
+            <div class="insight">
+              <h3>数字化空间在履约后</h3>
+              <p>宠物档案、照护日报、异常记录和经营看板，可以把一次服务沉淀为后续复购和运营判断。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>4. 差异化切入建议</h2>
+          <div class="grid grid--3">
+            <div class="card">
+              <span class="badge">预约前</span>
+              <h3>降低决策不确定性</h3>
+              <p>用服务说明、照护者信息、价格口径、常见问题和宠物档案入口提升预约前清晰度。</p>
+            </div>
+            <div class="card">
+              <span class="badge">服务中</span>
+              <h3>提升过程可见性</h3>
+              <p>用签到、照片、照护记录和 AI 日报把履约过程转成用户可读反馈。</p>
+            </div>
+            <div class="card">
+              <span class="badge">服务后</span>
+              <h3>沉淀复购资产</h3>
+              <p>用历史订单、宠物偏好、日报查看和渠道数据，支持老客维护和节假日预约提醒。</p>
+            </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">本地生活</span>
+            <span class="tag">内容种草</span>
+            <span class="tag">微信私域</span>
+            <span class="tag">服务履约</span>
+            <span class="tag">复购运营</span>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

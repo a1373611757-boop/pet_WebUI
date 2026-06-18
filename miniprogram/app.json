@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/booking/index",
+    "pages/sitters/index",
+    "pages/sitter-detail/index",
+    "pages/orders/index",
+    "pages/order-detail/index",
+    "pages/mine/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f7f3e8"
+  },
+  "tabBar": {
+    "color": "#7b8a82",
+    "selectedColor": "#1f9d72",
+    "backgroundColor": "#fffdf7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/home-normal.png",
+        "selectedIconPath": "assets/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/booking/index",
+        "text": "预约",
+        "iconPath": "assets/tabbar/booking-normal.png",
+        "selectedIconPath": "assets/tabbar/booking-active.png"
+      },
+      {
+        "pagePath": "pages/sitters/index",
+        "text": "照护者",
+        "iconPath": "assets/tabbar/sitters-normal.png",
+        "selectedIconPath": "assets/tabbar/sitters-active.png"
+      },
+      {
+        "pagePath": "pages/orders/index",
+        "text": "订单",
+        "iconPath": "assets/tabbar/orders-normal.png",
+        "selectedIconPath": "assets/tabbar/orders-active.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "assets/tabbar/mine-normal.png",
+        "selectedIconPath": "assets/tabbar/mine-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

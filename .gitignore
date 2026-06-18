@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Local service/deploy state
+.netlify/
+.vercel/
+.cache/
+.vite/
+
+# Logs
+*.log
+*.err.log
+debug.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local/private config
+project.private.config.json
+*.local
+.env
+.env.*
+
+# Heavy duplicate generated media kept elsewhere in dist
+neighbor-pet-home-promo/*.mp4
+NeighborPet-Portfolio/dashboard/public/videos/
+NeighborPet-Portfolio/dashboard/netlify-*.png
+
+# Temporary render/capture output
+tmp/
+temp/
+*.tmp
