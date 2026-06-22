@@ -6,27 +6,22 @@
   <title>邻宠到家｜社区宠物照护信任平台产品作品集</title>
   <style>
     :root {
-      --cream: #fffaf3;
-      --cream-2: #f7f0e5;
-      --paper: #fffdf8;
-      --sage: #9fbdad;
-      --sage-soft: #e8f1eb;
-      --aqua: #d9efea;
-      --orange: #e99a72;
-      --orange-soft: #ffe1d1;
-      --deep: #1c3b34;
-      --deep-2: #102821;
-      --text: #263632;
-      --muted: #657871;
-      --line: rgba(28, 59, 52, .12);
-      --line-strong: rgba(28, 59, 52, .22);
-      --white: #ffffff;
-      --shadow: 0 24px 70px rgba(28, 59, 52, .12);
-      --soft-shadow: 0 14px 36px rgba(28, 59, 52, .08);
-      --radius-lg: 28px;
-      --radius: 18px;
-      --radius-sm: 12px;
+      --bg: #fffaf2;
+      --surface: #ffffff;
+      --text: #203732;
+      --muted: #667973;
+      --primary: #1f5147;
+      --primary-soft: #e6f1ec;
+      --accent: #e99a72;
+      --accent-soft: #ffe3d3;
+      --border: rgba(31, 81, 71, .13);
+      --shadow: 0 24px 70px rgba(31, 81, 71, .12);
+      --radius: 24px;
       --max: 1180px;
+      --photo: url("../NeighborPet-Portfolio/dashboard/dist/images/trust-photo.jpg");
+      --photo-dog: url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=80");
+      --photo-cat: url("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80");
+      --photo-walk: url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80");
     }
 
     * {
@@ -41,16 +36,12 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(circle at 8% -4%, rgba(159, 189, 173, .36), transparent 34rem),
-        radial-gradient(circle at 90% 4%, rgba(233, 154, 114, .22), transparent 30rem),
-        linear-gradient(180deg, var(--cream) 0%, #fbf8f1 42%, #fffaf2 100%);
-      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, Helvetica, sans-serif;
-      line-height: 1.68;
+        radial-gradient(circle at 10% -8%, rgba(154, 190, 174, .34), transparent 31rem),
+        radial-gradient(circle at 88% 0%, rgba(233, 154, 114, .18), transparent 30rem),
+        linear-gradient(180deg, var(--bg), #fbf7ef 48%, #fffaf2);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      line-height: 1.62;
       letter-spacing: 0;
-    }
-
-    body.nav-elevated .site-header {
-      box-shadow: 0 14px 34px rgba(28, 59, 52, .12);
     }
 
     a {
@@ -62,6 +53,11 @@
       font: inherit;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .shell {
       width: min(var(--max), calc(100% - 48px));
       margin: 0 auto;
@@ -70,50 +66,47 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 80;
-      border-bottom: 1px solid rgba(28, 59, 52, .08);
-      background: rgba(255, 250, 243, .82);
-      backdrop-filter: blur(22px);
-      transition: box-shadow .24s ease, background .24s ease;
+      z-index: 50;
+      border-bottom: 1px solid rgba(31, 81, 71, .08);
+      background: rgba(255, 250, 242, .82);
+      backdrop-filter: blur(20px);
+      transition: box-shadow .24s ease;
+    }
+
+    body.nav-elevated .site-header {
+      box-shadow: 0 12px 32px rgba(31, 81, 71, .1);
     }
 
     .nav {
-      min-height: 76px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      min-width: 0;
-      color: var(--deep);
+      color: var(--primary);
       font-weight: 900;
     }
 
-    .brand-mark {
+    .brand img {
       width: 42px;
       height: 42px;
-      flex: 0 0 auto;
       border-radius: 14px;
       object-fit: cover;
-      box-shadow: 0 16px 34px rgba(28, 59, 52, .2);
+      box-shadow: 0 14px 30px rgba(31, 81, 71, .18);
     }
 
-    .brand-text {
+    .brand span {
       display: grid;
       line-height: 1.1;
     }
 
-    .brand-title {
-      font-size: 18px;
-      white-space: nowrap;
-    }
-
-    .brand-subtitle {
+    .brand small {
       color: var(--muted);
       font-size: 11px;
       text-transform: uppercase;
@@ -121,47 +114,28 @@
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: flex-end;
       gap: 6px;
-      color: #52645d;
       font-size: 13px;
       font-weight: 800;
-    }
-
-    .nav-links a,
-    .nav-cta {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      white-space: nowrap;
+      color: #526761;
     }
 
     .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
       padding: 0 11px;
+      border-radius: 999px;
+      white-space: nowrap;
       transition: color .2s ease, background .2s ease;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--deep);
-      background: rgba(159, 189, 173, .24);
-    }
-
-    .nav-cta {
-      border: 0;
-      padding: 0 16px;
-      color: var(--cream);
-      background: var(--deep);
-      font-weight: 900;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(28, 59, 52, .18);
+      color: var(--primary);
+      background: rgba(31, 81, 71, .08);
     }
 
     main {
@@ -169,48 +143,8 @@
     }
 
     section {
-      padding: 112px 0;
-      scroll-margin-top: 94px;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 760px;
-      display: grid;
-      align-items: center;
-      padding: 116px 0 92px;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 9% -12% auto auto;
-      width: 560px;
-      height: 560px;
-      border-radius: 48% 52% 42% 58%;
-      background: linear-gradient(135deg, rgba(159, 189, 173, .42), rgba(233, 154, 114, .20));
-      filter: blur(5px);
-      opacity: .75;
-    }
-
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(330px, .72fr);
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      width: fit-content;
-      margin: 0 0 16px;
-      padding: 7px 12px;
-      border: 1px solid rgba(28, 59, 52, .14);
-      border-radius: 999px;
-      color: var(--deep);
-      background: rgba(255, 255, 255, .70);
-      font-size: 13px;
-      font-weight: 900;
+      padding: 104px 0;
+      scroll-margin-top: 90px;
     }
 
     h1,
@@ -223,36 +157,78 @@
     h1 {
       max-width: 820px;
       margin-bottom: 18px;
-      color: var(--deep);
-      font-size: clamp(44px, 7vw, 84px);
+      color: var(--primary);
+      font-size: clamp(42px, 7vw, 80px);
       line-height: 1.02;
       letter-spacing: 0;
     }
 
     h2 {
       margin-bottom: 12px;
-      color: var(--deep);
-      font-size: clamp(30px, 3.8vw, 48px);
-      line-height: 1.18;
+      color: var(--primary);
+      font-size: clamp(30px, 3.8vw, 46px);
+      line-height: 1.16;
       letter-spacing: 0;
     }
 
     h3 {
       margin-bottom: 8px;
-      color: var(--deep);
+      color: var(--primary);
       font-size: 19px;
-      line-height: 1.32;
+      line-height: 1.28;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .kicker {
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .48fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    .hero {
+      min-height: 780px;
+      display: grid;
+      align-items: center;
+      padding: 112px 0 92px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .76fr);
+      gap: 54px;
+      align-items: center;
     }
 
     .lead {
-      max-width: 780px;
-      margin-bottom: 30px;
-      color: var(--muted);
-      font-size: clamp(17px, 1.8vw, 21px);
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(17px, 1.7vw, 21px);
     }
 
-    .trust-tags,
-    .mini-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
@@ -261,30 +237,24 @@
       list-style: none;
     }
 
-    .trust-tags li,
-    .mini-tags li {
+    .tags li,
+    .pill {
       display: inline-flex;
+      min-height: 32px;
       align-items: center;
       border-radius: 999px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-size: 13px;
       font-weight: 900;
-      white-space: nowrap;
     }
 
-    .trust-tags li {
-      min-height: 38px;
-      padding: 0 14px;
-      color: var(--deep);
-      background: rgba(232, 241, 235, .95);
-      border: 1px solid rgba(28, 59, 52, .1);
-      font-size: 14px;
+    .tags li {
+      padding: 0 12px;
     }
 
-    .mini-tags li {
-      min-height: 28px;
+    .pill {
       padding: 0 10px;
-      color: #34554d;
-      background: rgba(159, 189, 173, .20);
-      font-size: 12px;
     }
 
     .actions {
@@ -295,16 +265,15 @@
     }
 
     .button {
-      min-height: 48px;
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 0 20px;
-      border: 1px solid rgba(28, 59, 52, .14);
-      background: rgba(255, 255, 255, .76);
-      color: var(--deep);
+      color: var(--primary);
+      background: rgba(255, 255, 255, .78);
       font-size: 14px;
       font-weight: 900;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
@@ -312,570 +281,581 @@
 
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: var(--soft-shadow);
-      background: var(--white);
+      box-shadow: 0 12px 28px rgba(31, 81, 71, .12);
+      background: var(--surface);
     }
 
     .button.primary {
       border-color: transparent;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--deep), #416c5f);
-      box-shadow: 0 16px 32px rgba(28, 59, 52, .20);
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--primary), #497568);
+      box-shadow: 0 16px 34px rgba(31, 81, 71, .2);
     }
 
-    .button.warm {
-      border-color: transparent;
-      color: #4b2f22;
-      background: linear-gradient(135deg, #ffd9c5, var(--orange));
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+      border-radius: 34px;
+      overflow: hidden;
+      background: var(--photo) center / cover;
+      box-shadow: var(--shadow);
     }
 
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 30px;
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12, 37, 31, .08), rgba(12, 37, 31, .58));
     }
 
-    .meta-item,
-    .card,
-    .panel,
-    .persona,
-    .feature-card,
-    .flow-step,
-    .metric-card,
-    .roadmap-card,
-    .summary-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .88), rgba(255, 255, 255, .68));
-      box-shadow: var(--soft-shadow);
-      backdrop-filter: blur(14px);
-    }
-
-    .meta-item {
+    .phone-card {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: min(330px, calc(100% - 48px));
       padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .54);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 0 22px 60px rgba(15, 47, 39, .24);
+      backdrop-filter: blur(16px);
+      animation: floatCard 5s ease-in-out infinite;
     }
 
-    .meta-item span {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 900;
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
-    .meta-item strong {
-      color: var(--deep);
-      font-size: 15px;
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 30px;
-      border: 1px solid rgba(28, 59, 52, .16);
-      border-radius: 32px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .70));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: linear-gradient(90deg, var(--sage), var(--orange));
-    }
-
-    .hero-card h3 {
-      margin-bottom: 16px;
-      font-size: 24px;
-    }
-
-    .signal-list,
-    .plain-list,
-    .check-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .signal-list li {
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 12px;
-      align-items: start;
-    }
-
-    .signal-list span {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      color: var(--cream);
-      background: var(--deep);
-      font-weight: 900;
-      font-size: 13px;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, .88fr) minmax(280px, .50fr);
-      gap: 32px;
-      align-items: end;
-      margin-bottom: 42px;
-    }
-
-    .section-kicker {
-      margin-bottom: 10px;
-      color: #c97958;
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .section-head p,
-    .card p,
-    .panel p,
-    .persona p,
-    .feature-card p,
-    .metric-card p,
-    .roadmap-card p,
-    .summary-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .band {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .54), rgba(255, 255, 255, .20)),
-        rgba(232, 241, 235, .52);
-    }
-
-    .grid-2,
-    .grid-3,
-    .grid-4,
-    .grid-5 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .grid-5 {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-
-    .card,
-    .panel,
-    .persona,
-    .feature-card,
-    .metric-card,
-    .roadmap-card,
-    .summary-card {
-      position: relative;
-      overflow: hidden;
-      padding: 26px;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-
-    .card::before,
-    .panel::before,
-    .persona::before,
-    .feature-card::before,
-    .metric-card::before,
-    .roadmap-card::before,
-    .summary-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(28, 59, 52, .22), transparent);
-    }
-
-    .card:hover,
-    .panel:hover,
-    .persona:hover,
-    .feature-card:hover,
-    .metric-card:hover,
-    .roadmap-card:hover,
-    .summary-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(28, 59, 52, .24);
-      box-shadow: var(--shadow);
-    }
-
-    .card-number,
-    .icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 15px;
-      border-radius: 14px;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--deep), #5c8978);
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .insight-card strong,
-    .highlight {
-      color: var(--deep);
-      font-weight: 900;
-    }
-
-    .persona {
-      display: grid;
-      gap: 14px;
-    }
-
-    .persona-top {
+    .phone-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-    }
-
-    .persona-label {
-      display: inline-flex;
-      width: fit-content;
-      min-height: 28px;
-      align-items: center;
-      padding: 0 10px;
-      border-radius: 999px;
-      color: var(--deep);
-      background: rgba(159, 189, 173, .22);
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .quote {
-      margin: 0;
-      padding: 16px;
-      border-left: 4px solid var(--orange);
-      border-radius: var(--radius-sm);
-      color: var(--deep);
-      background: rgba(255, 225, 209, .52);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .info-block {
-      display: grid;
-      gap: 6px;
-    }
-
-    .info-block span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .info-block p {
-      margin: 0;
-    }
-
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .pain-card {
-      min-height: 168px;
-      display: grid;
-      align-content: space-between;
-    }
-
-    .plain-list li,
-    .check-list li {
-      position: relative;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    .plain-list li::before,
-    .check-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: .72em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--sage);
-    }
-
-    .check-list li::before {
-      background: var(--orange);
-    }
-
-    .loop-wrap {
-      padding: 34px;
-      border-radius: var(--radius-lg);
-      color: var(--cream);
-      background:
-        linear-gradient(135deg, rgba(28, 59, 52, .98), rgba(62, 105, 92, .92)),
-        var(--deep);
-      box-shadow: var(--shadow);
-    }
-
-    .loop-wrap h2,
-    .loop-wrap p,
-    .loop-wrap h3 {
-      color: var(--cream);
-    }
-
-    .loop-wrap p {
-      opacity: .88;
-    }
-
-    .loop-chain {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 26px;
+      margin-bottom: 14px;
     }
 
-    .loop-item {
-      position: relative;
-      min-height: 128px;
-      padding: 18px;
-      border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .10);
-    }
-
-    .loop-item span {
-      display: block;
-      margin-bottom: 18px;
-      color: #ffd9c5;
+    .phone-title {
+      display: grid;
+      gap: 2px;
+      color: var(--primary);
       font-weight: 900;
-      font-size: 13px;
     }
 
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .feature-card {
-      display: grid;
-      align-content: start;
-      min-height: 390px;
-    }
-
-    .field-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .field-list span {
-      display: inline-flex;
-      min-height: 28px;
-      align-items: center;
-      padding: 0 9px;
-      border-radius: 999px;
-      color: #405c54;
-      background: rgba(232, 241, 235, .86);
+    .phone-title small {
+      color: var(--muted);
       font-size: 12px;
       font-weight: 800;
     }
 
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-      counter-reset: flow;
-    }
-
-    .flow-step {
-      min-height: 172px;
-      padding: 18px;
-      counter-increment: flow;
-    }
-
-    .flow-step::before {
-      content: counter(flow, decimal-leading-zero);
-      display: block;
-      margin-bottom: 20px;
-      color: var(--orange);
+    .status {
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #70432f;
+      background: var(--accent-soft);
+      font-size: 12px;
       font-weight: 900;
-      font-size: 13px;
     }
 
-    .compare {
+    .report-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 10px;
+    }
+
+    .report-row {
+      display: grid;
+      grid-template-columns: 18px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(230, 241, 236, .72);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 5px rgba(31, 81, 71, .09);
+    }
+
+    .card,
+    .panel,
+    .persona,
+    .metric-card,
+    .roadmap-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .72));
+      box-shadow: 0 14px 40px rgba(31, 81, 71, .08);
+      backdrop-filter: blur(12px);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card:hover,
+    .persona:hover,
+    .metric-card:hover,
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(31, 81, 71, .24);
+      box-shadow: var(--shadow);
+    }
+
+    .band {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.18)),
+        rgba(230, 241, 236, .48);
+    }
+
+    .problem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(330px, .7fr);
+      gap: 22px;
       align-items: stretch;
     }
 
-    .compare-card {
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .74);
-      box-shadow: var(--soft-shadow);
-    }
-
-    .compare-card.featured {
-      color: var(--cream);
-      background:
-        linear-gradient(135deg, rgba(28, 59, 52, .98), rgba(75, 121, 105, .92)),
-        var(--deep);
-    }
-
-    .compare-card.featured h3,
-    .compare-card.featured li,
-    .compare-card.featured p {
-      color: var(--cream);
-    }
-
-    .compare-list {
+    .insight-grid {
       display: grid;
-      gap: 12px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .compare-list li {
-      display: grid;
-      grid-template-columns: minmax(110px, .42fr) minmax(0, 1fr);
-      gap: 14px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(28, 59, 52, .10);
-      color: var(--muted);
-    }
-
-    .compare-card.featured .compare-list li {
-      border-color: rgba(255, 255, 255, .16);
-    }
-
-    .compare-list strong {
-      color: inherit;
-    }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .metric-card {
-      min-height: 285px;
+    .insight-card {
+      min-height: 210px;
+      padding: 24px;
     }
 
-    .metric-card strong {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--deep);
-      font-size: 20px;
-    }
-
-    .metric-list {
+    .num {
+      width: 40px;
+      height: 40px;
       display: grid;
-      gap: 8px;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      color: var(--bg);
+      background: var(--primary);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .decision-map {
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .decision-layer {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .decision-layer::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--primary));
+    }
+
+    .decision-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .decision-item strong {
+      color: var(--primary);
+    }
+
+    .decision-item span:first-child {
+      z-index: 1;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--bg);
+      background: var(--primary);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .users-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .persona {
+      overflow: hidden;
+    }
+
+    .persona-img {
+      height: 180px;
+      overflow: hidden;
+      background: var(--primary-soft);
+    }
+
+    .persona-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .persona:hover .persona-img img {
+      transform: scale(1.04);
+    }
+
+    .persona-body {
+      padding: 22px;
+    }
+
+    .persona-body blockquote {
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      color: var(--primary);
+      background: rgba(255, 227, 211, .55);
+      font-weight: 900;
+    }
+
+    .mini-line {
       margin: 0;
-      padding: 0;
-      list-style: none;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .metric-list li {
-      padding: 8px 10px;
-      border-radius: 10px;
-      background: rgba(232, 241, 235, .62);
+    .solution-board {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
-    .roadmap {
+    .loop {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      padding: 28px;
+      border-radius: 32px;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--primary), #457366);
+      box-shadow: var(--shadow);
+    }
+
+    .loop::before {
+      content: "";
+      position: absolute;
+      left: 56px;
+      right: 56px;
+      top: 72px;
+      height: 2px;
+      background: rgba(255, 250, 242, .34);
+    }
+
+    .loop-node {
+      position: relative;
+      z-index: 1;
+      min-height: 190px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .10);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .loop-node:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, .16);
+    }
+
+    .loop-node span {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 32px;
+      border-radius: 12px;
+      color: var(--primary);
+      background: var(--bg);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .loop-node h3 {
+      color: var(--bg);
+      font-size: 17px;
+    }
+
+    .loop-node p {
+      margin-bottom: 0;
+      color: rgba(255, 250, 242, .82);
+      font-size: 13px;
+    }
+
+    .flow-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(330px, .65fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .flow-tabs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-tab {
+      width: 100%;
+      min-height: 54px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 10px 14px;
+      color: var(--text);
+      background: rgba(255, 255, 255, .70);
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .flow-tab:hover,
+    .flow-tab.active {
+      transform: translateX(4px);
+      border-color: rgba(31, 81, 71, .26);
+      background: var(--surface);
+    }
+
+    .flow-tab span {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--bg);
+      background: var(--primary);
+      font-size: 12px;
+    }
+
+    .mockup {
+      position: sticky;
+      top: 100px;
+      min-height: 520px;
+      padding: 22px;
+      border-radius: 36px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.68)),
+        var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .mockup-screen {
+      height: 100%;
+      min-height: 470px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      border-radius: 28px;
+      padding: 22px;
+      background: linear-gradient(180deg, #fffaf2, #eef5f0);
+      overflow: hidden;
+    }
+
+    .mockup-image {
+      height: 170px;
+      border-radius: 22px;
+      background: var(--photo-dog) center / cover;
+      box-shadow: inset 0 -80px 80px rgba(31, 81, 71, .18);
+    }
+
+    .mockup-title {
+      color: var(--primary);
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .mockup-copy {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mockup-meta {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mockup-meta div {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      color: var(--primary);
+      background: rgba(255, 255, 255, .76);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .metrics-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(330px, .78fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .funnel,
+    .matrix {
+      padding: 26px;
+    }
+
+    .funnel-chart {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 46px;
+      gap: 12px;
+      align-items: center;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .bar {
+      position: relative;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(31, 81, 71, .08);
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform-origin: left;
+      animation: growBar .9s ease both;
+    }
+
+    @keyframes growBar {
+      from { transform: scaleX(.18); }
+      to { transform: scaleX(1); }
+    }
+
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .metric-card {
+      padding: 16px;
+      min-height: 150px;
+    }
+
+    .metric-card ul {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metric-card li {
+      padding: 6px 8px;
+      border-radius: 9px;
+      background: rgba(230, 241, 236, .66);
+    }
+
+    .caption {
+      margin: 16px 0 0;
+      color: #8a7467;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .roadmap-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
     .roadmap-card {
-      min-height: 430px;
-      display: grid;
-      align-content: start;
-      gap: 16px;
+      min-height: 250px;
+      padding: 24px;
     }
 
     .phase {
       width: fit-content;
-      padding: 7px 11px;
+      margin-bottom: 12px;
+      padding: 6px 10px;
       border-radius: 999px;
-      color: #4b2f22;
-      background: var(--orange-soft);
+      color: #744632;
+      background: var(--accent-soft);
       font-size: 12px;
       font-weight: 900;
     }
 
-    .deliverables {
+    .summary-strip {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .deliverables .card {
-      display: grid;
-      align-content: space-between;
-      gap: 14px;
-      min-height: 250px;
-    }
-
-    .final-card {
-      padding: 44px;
-      border-radius: 32px;
-      text-align: center;
-      color: var(--cream);
-      background:
-        linear-gradient(135deg, rgba(28, 59, 52, .98), rgba(76, 119, 103, .92)),
-        var(--deep);
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 20px;
+      padding: 26px;
+      border-radius: 28px;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--primary), #47766a);
       box-shadow: var(--shadow);
     }
 
-    .final-card h2,
-    .final-card p {
-      color: var(--cream);
+    .summary-strip h2,
+    .summary-strip p {
+      color: var(--bg);
     }
 
-    .final-card p {
-      max-width: 820px;
-      margin: 0 auto 24px;
-      opacity: .88;
+    .summary-strip p {
+      margin-bottom: 0;
+      opacity: .84;
     }
 
-    .boundary {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      color: #4b3b2f;
-      background: rgba(255, 225, 209, .56);
-      font-size: 14px;
-      font-weight: 800;
+    .doc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .doc-links .button {
+      color: var(--primary);
+      background: var(--bg);
     }
 
     .back-top {
@@ -889,8 +869,8 @@
       place-items: center;
       border: 0;
       border-radius: 50%;
-      color: var(--cream);
-      background: var(--deep);
+      color: var(--bg);
+      background: var(--primary);
       box-shadow: var(--shadow);
       cursor: pointer;
       opacity: 0;
@@ -924,32 +904,13 @@
       transform: translateY(0);
     }
 
-    .hero .reveal {
-      animation: heroIn .78s ease both;
-    }
-
-    .hero .hero-card {
-      animation-delay: .12s;
-    }
-
-    @keyframes heroIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        transition: none !important;
         animation: none !important;
+        transition: none !important;
       }
 
       .reveal {
@@ -960,35 +921,33 @@
 
     @media (max-width: 1120px) {
       .hero-grid,
-      .section-head,
-      .compare {
+      .problem-layout,
+      .flow-layout,
+      .metrics-layout,
+      .summary-strip,
+      .section-head {
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        max-width: 720px;
+      .hero-visual {
+        min-height: 520px;
       }
 
-      .hero-meta,
-      .grid-4,
-      .feature-grid,
-      .metrics-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .pain-grid,
-      .loop-chain,
-      .flow-grid {
+      .loop,
+      .roadmap-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .roadmap,
-      .deliverables {
-        grid-template-columns: 1fr;
+      .loop::before {
+        display: none;
+      }
+
+      .doc-links {
+        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .shell {
         width: min(100% - 32px, var(--max));
       }
@@ -1001,10 +960,9 @@
 
       .nav-links {
         width: 100%;
-        justify-content: flex-start;
         overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 2px;
+        justify-content: flex-start;
+        padding-bottom: 3px;
       }
 
       section {
@@ -1013,42 +971,44 @@
 
       .hero {
         min-height: auto;
-        padding: 72px 0 70px;
+        padding: 72px 0;
       }
 
       h1 {
-        font-size: clamp(38px, 12vw, 58px);
+        font-size: clamp(38px, 11vw, 58px);
       }
 
-      .hero-meta,
-      .grid-2,
-      .grid-3,
-      .grid-4,
-      .grid-5,
-      .pain-grid,
-      .loop-chain,
-      .feature-grid,
-      .flow-grid,
-      .metrics-grid {
+      .hero-visual {
+        min-height: 480px;
+      }
+
+      .insight-grid,
+      .users-grid,
+      .loop,
+      .matrix-grid,
+      .roadmap-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-card,
-      .loop-wrap,
-      .final-card {
-        padding: 24px;
-        border-radius: 24px;
+      .flow-tab:hover,
+      .flow-tab.active {
+        transform: translateY(-2px);
       }
 
-      .feature-card,
-      .metric-card,
-      .roadmap-card {
-        min-height: auto;
+      .mockup {
+        position: relative;
+        top: auto;
       }
 
-      .compare-list li {
-        grid-template-columns: 1fr;
-        gap: 4px;
+      .funnel-row {
+        grid-template-columns: 92px 1fr 40px;
+        font-size: 12px;
+      }
+
+      .summary-strip,
+      .funnel,
+      .matrix {
+        padding: 22px;
       }
 
       .button {
@@ -1060,213 +1020,170 @@
 <body>
   <header class="site-header">
     <nav class="nav shell" aria-label="作品集导航">
-      <a class="brand" href="#overview" aria-label="邻宠到家作品集首页">
-        <img class="brand-mark" src="assets/neighbor-pet-logo.png" alt="邻宠到家图标">
-        <span class="brand-text">
-          <span class="brand-title">邻宠到家</span>
-          <span class="brand-subtitle">Trust Care Platform</span>
+      <a class="brand" href="#hero" aria-label="邻宠到家作品集首页">
+        <img src="assets/neighbor-pet-logo.png" alt="邻宠到家图标">
+        <span>
+          邻宠到家
+          <small>Product Portfolio</small>
         </span>
       </a>
       <div class="nav-links">
-        <a href="#insight">核心洞察</a>
-        <a href="#personas">用户画像</a>
-        <a href="#solution">信任闭环</a>
-        <a href="#features">核心功能</a>
-        <a href="#flow">产品流程</a>
-        <a href="#metrics">指标体系</a>
-        <button class="nav-cta" type="button" data-scroll="roadmap">项目路线图</button>
+        <a href="#problem">Problem</a>
+        <a href="#users">Users</a>
+        <a href="#solution">Solution</a>
+        <a href="#flow">Flow</a>
+        <a href="#metrics">Data</a>
+        <a href="#roadmap">Roadmap</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="overview">
+    <section class="hero" id="hero">
       <div class="shell hero-grid">
         <div class="reveal">
-          <p class="eyebrow">邻宠到家｜社区宠物照护信任平台</p>
+          <p class="kicker">邻宠到家｜社区宠物照护信任平台</p>
           <h1>把宠物托付给附近可信的人，也把照护过程看得见</h1>
-          <p class="lead">邻宠到家是一款面向城市年轻宠主的社区宠物照护平台，提供日托、寄养、上门喂养和接送服务。平台通过宠物档案、服务者认证、过程记录和信用评价，降低宠主在托付宠物时的不确定感。</p>
-          <ul class="trust-tags" aria-label="项目关键词">
+          <p class="lead">邻宠到家面向城市年轻宠主，解决日托、寄养、上门喂养场景中的“不敢托付”问题。</p>
+          <ul class="tags">
             <li>附近可信</li>
             <li>过程可见</li>
             <li>异常有保障</li>
           </ul>
           <div class="actions">
             <a class="button primary" href="#flow">查看产品流程</a>
-            <a class="button" href="#features">查看核心功能</a>
-            <a class="button warm" href="#roadmap">查看项目路线图</a>
-          </div>
-          <div class="hero-meta">
-            <div class="meta-item"><span>项目定位</span><strong>社区宠物照护信任平台</strong></div>
-            <div class="meta-item"><span>核心场景</span><strong>日托 / 寄养 / 上门喂养 / 接送</strong></div>
-            <div class="meta-item"><span>能力证据</span><strong>用户洞察、功能设计、指标体系、路线图</strong></div>
+            <a class="button" href="#solution">查看核心功能</a>
+            <a class="button" href="#roadmap">查看项目路线图</a>
           </div>
         </div>
-        <aside class="hero-card reveal" aria-label="项目判断">
-          <h3>产品判断</h3>
-          <ul class="signal-list">
-            <li><span>01</span><div><strong>用户买的不是照看时长</strong><p>宠物被视作家人后，托付行为背后是责任感、情绪压力和对服务稳定性的判断。</p></div></li>
-            <li><span>02</span><div><strong>核心矛盾不是缺少供给</strong><p>真正影响下单的是“这个人能不能信、过程能不能看、异常有没有人负责”。</p></div></li>
-            <li><span>03</span><div><strong>平台价值来自信任机制</strong><p>用结构化档案、服务留痕、评价沉淀和平台规则，把一次性交易变成长期关系。</p></div></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
 
-    <section class="band" id="insight">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-kicker">Product Insight</p>
-            <h2>为什么不是普通寄养平台？</h2>
-          </div>
-          <p>传统平台更像服务列表，解决“有没有人接单”。邻宠到家的切入点是托付场景中的信任成本：让宠主在离开宠物时，仍然能确认它被认真、稳定、透明地照顾。</p>
-        </div>
-        <div class="grid-3">
-          <article class="card insight-card reveal">
-            <span class="card-number">01</span>
-            <h3>从“找服务”到“判断可信”</h3>
-            <p>寄养、日托、上门喂养虽然不是高频消费，但每一次都伴随高情绪压力。用户会反复确认服务者身份、环境、经验和历史评价，再决定是否下单。</p>
-          </article>
-          <article class="card insight-card reveal">
-            <span class="card-number">02</span>
-            <h3>从“下单完成”到“过程可见”</h3>
-            <p>服务不可见会放大焦虑。平台把接宠、喂食、饮水、排便、情绪和照片反馈沉淀成时间线，让照护过程从黑箱变成可追踪记录。</p>
-          </article>
-          <article class="card insight-card reveal">
-            <span class="card-number">03</span>
-            <h3>从“事后评价”到“服务信用沉淀”</h3>
-            <p>评价不只用于排序，也用于沉淀服务者的履约能力、沟通稳定性和异常处理表现，帮助下一次托付更快建立判断。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="personas">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-kicker">User Segments</p>
-            <h2>三类用户画像：不同预算下，同一个信任问题</h2>
-          </div>
-          <p>用户差异不只来自年龄和城市，而来自照护频率、风险承受能力、对透明度的要求，以及愿意为“确定感”支付多少成本。</p>
-        </div>
-        <div class="grid-3">
-          <article class="persona reveal">
-            <div class="persona-top">
-              <div><span class="persona-label">核心用户</span><h3>精致新锐白领</h3></div>
-              <span class="icon">25+</span>
+        <div class="hero-visual reveal" role="img" aria-label="社区宠物照护场景">
+          <div class="phone-card">
+            <div class="phone-head">
+              <div class="phone-title">照护日报预览<small>今日服务 · 豆包</small></div>
+              <span class="status">进行中</span>
             </div>
-            <p>25-35 岁，一线/新一线城市，工作忙，把宠物当家人，愿意为安心、透明、有品质的服务付费。</p>
-            <blockquote class="quote">我可以贵一点，但你必须让我放心。</blockquote>
-            <div class="info-block"><span>核心焦虑</span><p>担心服务者不可靠、环境不安全、服务过程看不见。</p></div>
-            <div class="info-block"><span>产品机会</span><p>把下单前判断和服务中反馈做得足够清晰，降低第一次托付门槛。</p></div>
-            <ul class="mini-tags"><li>服务者认证</li><li>环境照片</li><li>照护日报</li><li>异常提醒</li><li>服务后评价</li></ul>
-          </article>
-          <article class="persona reveal">
-            <div class="persona-top">
-              <div><span class="persona-label">增长用户</span><h3>Z 世代养宠人</h3></div>
-              <span class="icon">20+</span>
+            <div class="report-list">
+              <div class="report-row"><span class="dot"></span><span>已接到宠物</span><strong>09:12</strong></div>
+              <div class="report-row"><span class="dot"></span><span>已喂食并喝水</span><strong>12:30</strong></div>
+              <div class="report-row"><span class="dot"></span><span>情绪稳定，可互动</span><strong>15:40</strong></div>
+              <div class="report-row"><span class="dot"></span><span>照片记录已上传</span><strong>4 张</strong></div>
             </div>
-            <p>20-25 岁，预算有限但分享欲强，熟悉小红书/抖音式表达，愿意晒宠物，也愿意传播避坑经验。</p>
-            <blockquote class="quote">我要性价比，也要情绪价值，还要方便分享。</blockquote>
-            <div class="info-block"><span>核心焦虑</span><p>担心踩坑、价格不透明、服务体验不值得分享。</p></div>
-            <div class="info-block"><span>产品机会</span><p>把服务结果包装成可理解、可复盘、可分享的照护记录。</p></div>
-            <ul class="mini-tags"><li>一键日报</li><li>宠物成长记录</li><li>体验分享卡</li><li>社区推荐</li></ul>
-          </article>
-          <article class="persona reveal">
-            <div class="persona-top">
-              <div><span class="persona-label">高价值用户</span><h3>资深品质中产</h3></div>
-              <span class="icon">35+</span>
-            </div>
-            <p>35-50 岁，养宠经验更长，关注长期健康、慢病、老年护理，对专业性和稳定性要求更高。</p>
-            <blockquote class="quote">我需要长期、稳定、专业的人帮我照顾宠物。</blockquote>
-            <div class="info-block"><span>核心焦虑</span><p>担心临时照护不了解宠物健康状况，长期服务者不稳定。</p></div>
-            <div class="info-block"><span>产品机会</span><p>围绕长期照护关系建立档案、绑定、提醒和专业协作。</p></div>
-            <ul class="mini-tags"><li>长期托管计划</li><li>老年照护标签</li><li>常用服务者绑定</li><li>健康档案</li><li>紧急联系人</li></ul>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="band" id="pain">
+    <section class="band" id="problem">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">Problem Breakdown</p>
-            <h2>“不敢托付”背后的具体焦虑</h2>
+            <p class="kicker">Problem</p>
+            <h2>宠物照护的核心，不是找人，而是建立信任</h2>
           </div>
-          <p>年轻宠主并非不知道有寄养或上门服务，而是在决策前无法形成足够确定的信任判断。</p>
+          <p>传统平台解决“有没有服务”，但宠物被视为家人后，用户真正担心的是“这个人值不值得托付”。距离和价格只是基础条件，认证、过程和保障才是关键判断。</p>
         </div>
-        <div class="pain-grid">
-          <article class="card pain-card reveal"><span class="card-number">A</span><h3>服务者是否可靠</h3><p>身份、经验、服务范围和沟通态度是否可确认。</p></article>
-          <article class="card pain-card reveal"><span class="card-number">B</span><h3>环境是否安全</h3><p>寄养空间、宠物隔离、清洁状态和家庭成员情况是否透明。</p></article>
-          <article class="card pain-card reveal"><span class="card-number">C</span><h3>过程是否透明</h3><p>接宠、喂食、饮水、排便和情绪变化是否持续反馈。</p></article>
-          <article class="card pain-card reveal"><span class="card-number">D</span><h3>状态是否可见</h3><p>宠物是否适应、是否焦虑、是否有异常行为。</p></article>
-          <article class="card pain-card reveal"><span class="card-number">E</span><h3>异常是否有人负责</h3><p>出现生病、走失、攻击、延迟等情况时平台如何介入。</p></article>
-          <article class="card pain-card reveal"><span class="card-number">F</span><h3>价格边界是否清楚</h3><p>哪些服务包含、哪些额外收费、哪些情况不建议接单。</p></article>
+
+        <div class="problem-layout">
+          <div class="insight-grid">
+            <article class="card insight-card reveal">
+              <span class="num">前</span>
+              <h3>下单前</h3>
+              <p>我怎么判断这个人靠谱？</p>
+            </article>
+            <article class="card insight-card reveal">
+              <span class="num">中</span>
+              <h3>服务中</h3>
+              <p>我怎么看见宠物现在好不好？</p>
+            </article>
+            <article class="card insight-card reveal">
+              <span class="num">后</span>
+              <h3>服务后</h3>
+              <p>这次体验能否沉淀成信用？</p>
+            </article>
+          </div>
+
+          <aside class="panel decision-map reveal">
+            <h3>托付决策图</h3>
+            <div class="decision-layer">
+              <div class="decision-item"><span>1</span><div><strong>价格 / 距离</strong><p class="mini-line">基础筛选，不能单独形成信任。</p></div></div>
+              <div class="decision-item"><span>2</span><div><strong>认证 / 过程 / 保障</strong><p class="mini-line">决定用户是否敢把宠物交出去。</p></div></div>
+              <div class="decision-item"><span>3</span><div><strong>评价 / 信用</strong><p class="mini-line">让下一次托付更快、更稳定。</p></div></div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section id="solution">
-      <div class="shell">
-        <div class="loop-wrap reveal">
-          <p class="section-kicker">Trust Loop</p>
-          <h2>产品解决方案：围绕信任闭环设计服务链路</h2>
-          <p>邻宠到家不是单纯扩大供给，而是把托付前、服务中、服务后的关键判断点结构化，让宠主从“凭感觉选择”进入“有证据托付”。</p>
-          <div class="loop-chain" aria-label="信任闭环">
-            <article class="loop-item"><span>01</span><h3>宠物档案</h3><p>把照护偏好、健康信息和风险提醒前置。</p></article>
-            <article class="loop-item"><span>02</span><h3>匹配服务者</h3><p>基于距离、经验、宠物类型和可服务时间匹配。</p></article>
-            <article class="loop-item"><span>03</span><h3>服务前确认</h3><p>确认宠物信息、服务边界、价格和异常预案。</p></article>
-            <article class="loop-item"><span>04</span><h3>过程记录</h3><p>用时间线记录关键照护节点和状态变化。</p></article>
-            <article class="loop-item"><span>05</span><h3>服务评价</h3><p>评价体验、沟通、准时和异常处理表现。</p></article>
-            <article class="loop-item"><span>06</span><h3>信用沉淀</h3><p>形成服务者信用、常用绑定和复购关系。</p></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="features">
+    <section id="users">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">Core Features</p>
-            <h2>核心功能：把托付风险拆成可确认、可记录、可追责的模块</h2>
+            <p class="kicker">Users</p>
+            <h2>三类核心用户</h2>
           </div>
-          <p>功能设计不堆功能点，而围绕“信任如何被建立、被验证、被沉淀”组织。</p>
+          <p>画像只保留与产品决策相关的信息：焦虑是什么、愿意为什么付费、需要哪类信任功能。</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <span class="icon">PET</span>
-            <h3>宠物档案</h3>
-            <p>把宠物照护从“临时说明”变成“结构化交接”。</p>
-            <div class="field-list"><span>品种</span><span>年龄</span><span>体重</span><span>性格</span><span>饮食禁忌</span><span>健康情况</span><span>是否怕生</span><span>是否有攻击性</span><span>常用粮</span><span>常去医院</span><span>紧急联系人</span></div>
+
+        <div class="users-grid">
+          <article class="persona reveal">
+            <div class="persona-img">
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="年轻宠主与狗狗的生活场景">
+            </div>
+            <div class="persona-body">
+              <span class="pill">核心用户</span>
+              <h3>精致新锐白领</h3>
+              <blockquote>我可以贵一点，但你必须让我放心。</blockquote>
+              <p class="mini-line">工作忙、宠物家人化、愿意为安心付费。对应：服务者认证、照护日报、异常提醒。</p>
+            </div>
           </article>
-          <article class="feature-card reveal">
-            <span class="icon">ID</span>
-            <h3>服务者认证</h3>
-            <p>让用户在下单前能判断“这个人是否值得托付”。</p>
-            <div class="field-list"><span>真实头像</span><span>社区位置</span><span>服务经验</span><span>可服务宠物类型</span><span>家庭环境照片</span><span>历史评价</span><span>上门前沟通</span></div>
+
+          <article class="persona reveal">
+            <div class="persona-img">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="家中猫咪生活场景">
+            </div>
+            <div class="persona-body">
+              <span class="pill">增长用户</span>
+              <h3>Z 世代养宠人</h3>
+              <blockquote>我要性价比，也要情绪价值。</blockquote>
+              <p class="mini-line">预算有限、分享欲强、喜欢晒宠。对应：体验分享卡、成长记录、社区推荐。</p>
+            </div>
           </article>
-          <article class="feature-card reveal">
-            <span class="icon">LOG</span>
-            <h3>照护过程可视化</h3>
-            <p>把看不见的照护过程变成可追踪的时间线。</p>
-            <div class="field-list"><span>已接到宠物</span><span>已喂食</span><span>已喝水</span><span>已排便</span><span>情绪状态</span><span>照片/短视频</span><span>异常说明</span></div>
+
+          <article class="persona reveal">
+            <div class="persona-img">
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="狗狗户外陪伴与照护场景">
+            </div>
+            <div class="persona-body">
+              <span class="pill">高价值用户</span>
+              <h3>资深品质中产</h3>
+              <blockquote>我需要长期、稳定、专业的照护关系。</blockquote>
+              <p class="mini-line">养宠经验长、关注健康、重视稳定性。对应：常用服务者、健康档案、长期托管。</p>
+            </div>
           </article>
-          <article class="feature-card reveal">
-            <span class="icon">¥</span>
-            <h3>价格与服务边界透明</h3>
-            <p>减少用户“怕被临时加价、怕服务缩水”的不确定感。</p>
-            <div class="field-list"><span>日托</span><span>过夜寄养</span><span>上门喂养</span><span>遛狗</span><span>接送</span><span>额外喂药</span><span>洗护</span><span>不建议接单情况</span></div>
-          </article>
-          <article class="feature-card reveal">
-            <span class="icon">SAFE</span>
-            <h3>信任保障机制</h3>
-            <p>从单次交易走向长期信用关系。</p>
-            <div class="field-list"><span>服务前确认</span><span>服务中留痕</span><span>服务后评价</span><span>异常申诉</span><span>平台介入规则</span><span>宠物保险</span><span>服务保障金</span><span>合作宠物医院</span></div>
-          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="solution">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Solution</p>
+            <h2>用信任闭环替代功能堆砌</h2>
+          </div>
+          <p>产品围绕“托付前能判断、服务中能看见、服务后能沉淀”设计，把一次服务变成下一次选择的证据。</p>
+        </div>
+
+        <div class="solution-board">
+          <div class="loop reveal" aria-label="信任闭环">
+            <article class="loop-node"><span>01</span><h3>宠物档案</h3><p>结构化性格、饮食、健康和禁忌。</p></article>
+            <article class="loop-node"><span>02</span><h3>服务者认证</h3><p>真实资料、环境照片和历史评价。</p></article>
+            <article class="loop-node"><span>03</span><h3>服务前确认</h3><p>确认服务边界、注意事项和异常处理。</p></article>
+            <article class="loop-node"><span>04</span><h3>过程可视化</h3><p>图文/视频记录喂食、喝水和情绪。</p></article>
+            <article class="loop-node"><span>05</span><h3>服务后评价</h3><p>评价不止打分，也沉淀服务细节。</p></article>
+            <article class="loop-node"><span>06</span><h3>信用沉淀</h3><p>服务记录转化为下一次决策依据。</p></article>
+          </div>
         </div>
       </div>
     </section>
@@ -1275,132 +1192,121 @@
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">User Flow</p>
-            <h2>产品流程：从建档到复购的完整路径</h2>
+            <p class="kicker">Product Flow</p>
+            <h2>从建档到复购的用户流程</h2>
           </div>
-          <p>流程围绕“托付前有判断、服务中有反馈、服务后有沉淀”展开，让面试官一眼看懂产品逻辑。</p>
+          <p>点击步骤查看右侧产品状态，快速理解用户如何从第一次托付走向长期复购。</p>
         </div>
-        <div class="flow-grid">
-          <article class="flow-step reveal"><h3>创建宠物档案</h3><p>记录基础信息、健康情况、禁忌、性格和紧急联系人。</p></article>
-          <article class="flow-step reveal"><h3>选择服务类型</h3><p>日托、寄养、上门喂养、接送，根据场景进入不同服务链路。</p></article>
-          <article class="flow-step reveal"><h3>查看附近服务者</h3><p>优先呈现距离、可服务时间、经验和服务类型匹配度。</p></article>
-          <article class="flow-step reveal"><h3>对比认证与价格</h3><p>查看服务者认证、家庭环境、历史评价、服务边界和报价。</p></article>
-          <article class="flow-step reveal"><h3>下单并完成确认</h3><p>确认宠物信息、服务时间、接送方式、额外需求和异常预案。</p></article>
-          <article class="flow-step reveal"><h3>接收照护记录</h3><p>服务中收到图文/视频记录，确认喂食、饮水、排便和情绪状态。</p></article>
-          <article class="flow-step reveal"><h3>异常提醒与处理</h3><p>出现异常时触发提醒、补充说明和平台介入路径。</p></article>
-          <article class="flow-step reveal"><h3>生成照护日报</h3><p>服务结束后形成结构化日报，沉淀宠物偏好和服务表现。</p></article>
-          <article class="flow-step reveal"><h3>评价并更新信用</h3><p>评价会影响服务者信用分、排序和后续匹配策略。</p></article>
-          <article class="flow-step reveal"><h3>复购或绑定常用服务者</h3><p>高满意用户可绑定常用服务者，降低下一次托付成本。</p></article>
-        </div>
-        <div class="deliverables">
-          <article class="card reveal"><span class="icon">PRD</span><h3>PRD 产品需求文档</h3><p>需求背景、用户故事、功能结构、流程设计和版本规划。</p><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看 PRD</a></article>
-          <article class="card reveal"><span class="icon">Demo</span><h3>小程序 Demo</h3><p>预约、宠物档案、订单确认和服务记录流程。</p><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">查看 Demo</a></article>
-          <article class="card reveal"><span class="icon">AI</span><h3>AI 功能演示中心</h3><p>AI 客服、寄养日报、运营文案和经营分析助手。</p><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#ai">查看 AI 演示</a></article>
-          <article class="card reveal"><span class="icon">Data</span><h3>数据看板</h3><p>围绕订单、复购、服务评分和区域供需设计指标。</p><a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#dashboard">查看数据看板</a></article>
+
+        <div class="flow-layout">
+          <div class="flow-tabs reveal" role="tablist" aria-label="产品流程步骤">
+            <button class="flow-tab active" type="button" data-step="0"><span>01</span>创建宠物档案</button>
+            <button class="flow-tab" type="button" data-step="1"><span>02</span>选择服务类型</button>
+            <button class="flow-tab" type="button" data-step="2"><span>03</span>查看附近服务者</button>
+            <button class="flow-tab" type="button" data-step="3"><span>04</span>对比认证/环境/价格</button>
+            <button class="flow-tab" type="button" data-step="4"><span>05</span>服务前确认</button>
+            <button class="flow-tab" type="button" data-step="5"><span>06</span>接收照护记录</button>
+            <button class="flow-tab" type="button" data-step="6"><span>07</span>异常提醒</button>
+            <button class="flow-tab" type="button" data-step="7"><span>08</span>生成照护日报</button>
+            <button class="flow-tab" type="button" data-step="8"><span>09</span>评价与复购</button>
+          </div>
+
+          <aside class="mockup reveal" aria-live="polite">
+            <div class="mockup-screen">
+              <div>
+                <div class="mockup-image" id="mockupImage" role="img" aria-label="产品流程预览图"></div>
+                <p class="kicker" id="mockupKicker">Step 01</p>
+                <div class="mockup-title" id="mockupTitle">创建宠物档案</div>
+                <p class="mockup-copy" id="mockupCopy">记录品种、性格、饮食禁忌和紧急联系人，减少临时交接遗漏。</p>
+              </div>
+              <div class="mockup-meta" id="mockupMeta">
+                <div><span>信任动作</span><strong>结构化交接</strong></div>
+                <div><span>核心指标</span><strong>档案创建率</strong></div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="band" id="difference">
+    <section class="band" id="metrics">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">Differentiation</p>
-            <h2>差异化不是更多功能，而是更可信的托付体验</h2>
+            <p class="kicker">Data & Metrics</p>
+            <h2>用指标验证信任是否被建立</h2>
           </div>
-          <p>邻宠到家的差异化不来自把服务类目做得更多，而来自把用户最难判断的信任问题做成产品机制。</p>
+          <p>示例指标用于展示验证思路：不是只看订单量，而是观察用户是否愿意建档、确认、查看日报并复购。</p>
         </div>
-        <div class="compare">
-          <article class="compare-card reveal">
-            <h3>普通寄养平台</h3>
-            <ul class="compare-list">
-              <li><strong>服务呈现</strong><span>重点是服务列表</span></li>
-              <li><strong>决策依据</strong><span>用户主要看价格和距离</span></li>
-              <li><strong>服务过程</strong><span>过程不可见，反馈依赖服务者主动性</span></li>
-              <li><strong>评价机制</strong><span>评价偏事后，难以支持服务中决策</span></li>
-              <li><strong>信任来源</strong><span>主要依赖用户个人判断</span></li>
-            </ul>
+
+        <div class="metrics-layout">
+          <article class="panel funnel reveal">
+            <h3>用户信任漏斗</h3>
+            <div class="funnel-chart">
+              <div class="funnel-row"><span>首页访问</span><div class="bar"><i style="width:100%"></i></div><strong>100</strong></div>
+              <div class="funnel-row"><span>服务者主页</span><div class="bar"><i style="width:72%"></i></div><strong>72</strong></div>
+              <div class="funnel-row"><span>宠物档案</span><div class="bar"><i style="width:48%"></i></div><strong>48</strong></div>
+              <div class="funnel-row"><span>服务前确认</span><div class="bar"><i style="width:36%"></i></div><strong>36</strong></div>
+              <div class="funnel-row"><span>预约下单</span><div class="bar"><i style="width:28%"></i></div><strong>28</strong></div>
+              <div class="funnel-row"><span>服务完成</span><div class="bar"><i style="width:23%"></i></div><strong>23</strong></div>
+              <div class="funnel-row"><span>复购/推荐</span><div class="bar"><i style="width:14%"></i></div><strong>14</strong></div>
+            </div>
+            <p class="caption">示例指标，用于展示验证思路。</p>
           </article>
-          <article class="compare-card featured reveal">
-            <h3>邻宠到家</h3>
-            <ul class="compare-list">
-              <li><strong>服务呈现</strong><span>重点是服务可信度</span></li>
-              <li><strong>决策依据</strong><span>用户可以看认证、环境、历史记录和服务边界</span></li>
-              <li><strong>服务过程</strong><span>照护过程可视化，关键节点持续留痕</span></li>
-              <li><strong>评价机制</strong><span>异常过程可追踪，评价沉淀为信用资产</span></li>
-              <li><strong>信任来源</strong><span>通过档案、认证、记录、评价和平台规则共同建立</span></li>
-            </ul>
+
+          <article class="panel matrix reveal">
+            <h3>指标分层矩阵</h3>
+            <div class="matrix-grid">
+              <div class="metric-card"><h3>获客</h3><ul><li>首页访问量</li><li>服务入口点击率</li><li>注册转化率</li></ul></div>
+              <div class="metric-card"><h3>信任</h3><ul><li>档案创建率</li><li>认证查看率</li><li>咨询率</li></ul></div>
+              <div class="metric-card"><h3>过程</h3><ul><li>订单完成率</li><li>日报打开率</li><li>记录上传率</li></ul></div>
+              <div class="metric-card"><h3>留存</h3><ul><li>复购率</li><li>常用服务者绑定率</li><li>推荐分享率</li></ul></div>
+              <div class="metric-card"><h3>风险</h3><ul><li>取消率</li><li>纠纷率</li><li>异常事件率</li></ul></div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="metrics">
+    <section id="roadmap">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">Metrics System</p>
-            <h2>数据指标体系：用指标验证信任是否被建立</h2>
+            <p class="kicker">Roadmap / Summary</p>
+            <h2>从 MVP 验证到长期照护关系</h2>
           </div>
-          <p>指标体系围绕获客、信任建立、服务履约、留存复购和风险控制展开，避免只看订单量而忽略托付体验质量。</p>
+          <p>路线图聚焦三个问题：信任是否能提升下单、社区网络是否能提升复购、长期照护是否能扩展服务价值。</p>
         </div>
-        <div class="metrics-grid">
-          <article class="metric-card reveal"><span class="icon">01</span><strong>获客指标</strong><ul class="metric-list"><li>首页访问量</li><li>服务入口点击率</li><li>服务者主页浏览率</li><li>注册转化率</li></ul></article>
-          <article class="metric-card reveal"><span class="icon">02</span><strong>信任指标</strong><ul class="metric-list"><li>宠物档案创建率</li><li>服务者认证信息查看率</li><li>环境照片查看率</li><li>用户咨询率</li><li>服务前确认完成率</li></ul></article>
-          <article class="metric-card reveal"><span class="icon">03</span><strong>服务过程指标</strong><ul class="metric-list"><li>订单完成率</li><li>照护日报打开率</li><li>异常提醒响应时长</li><li>图文记录上传完成率</li></ul></article>
-          <article class="metric-card reveal"><span class="icon">04</span><strong>留存与复购指标</strong><ul class="metric-list"><li>7日/30日复访率</li><li>复购率</li><li>常用服务者绑定率</li><li>用户评价率</li><li>推荐分享率</li></ul></article>
-          <article class="metric-card reveal"><span class="icon">05</span><strong>风险指标</strong><ul class="metric-list"><li>订单取消率</li><li>纠纷率</li><li>差评率</li><li>异常事件率</li><li>服务者迟到率</li></ul></article>
-        </div>
-      </div>
-    </section>
 
-    <section class="band" id="roadmap">
-      <div class="shell">
-        <div class="section-head reveal">
+        <div class="roadmap-grid">
+          <article class="roadmap-card reveal">
+            <div class="phase">MVP 验证</div>
+            <h3>验证信任需求</h3>
+            <p>完成 H5 / 小程序 Demo，验证宠物档案、服务者主页和照护日报是否提升托付信心。</p>
+          </article>
+          <article class="roadmap-card reveal">
+            <div class="phase">社区网络</div>
+            <h3>沉淀附近服务者信用</h3>
+            <p>围绕 3 公里生活半径，建设信用分、常用服务者绑定和社区推荐。</p>
+          </article>
+          <article class="roadmap-card reveal">
+            <div class="phase">长期照护</div>
+            <h3>延伸健康与稳定关系</h3>
+            <p>接入健康档案、老年宠物标签、慢病喂药提醒和合作宠物医院信息。</p>
+          </article>
+        </div>
+
+        <div class="summary-strip reveal">
           <div>
-            <p class="section-kicker">Roadmap</p>
-            <h2>项目路线图：从 MVP 信任验证到长期照护管理</h2>
+            <h2>项目总结：从服务列表到信任基础设施</h2>
+            <p>邻宠到家展示的是一次产品经理完整思考：用用户洞察定义问题，用信任闭环组织功能，用流程和指标验证方案。</p>
           </div>
-          <p>路线图分三阶段推进，先验证“信任是否能提升转化”，再沉淀社区关系，最终延伸到长期健康与照护服务。</p>
-        </div>
-        <div class="roadmap">
-          <article class="roadmap-card reveal">
-            <span class="phase">第一阶段</span>
-            <h3>MVP 验证信任需求</h3>
-            <p><strong>目标：</strong>完成 H5 / 小程序 Demo，验证宠物档案、服务者主页、照护日报是否能提升用户信任。</p>
-            <div class="info-block"><span>核心功能</span><p>预约服务、宠物档案、服务者主页、照护时间线、服务评价。</p></div>
-            <div class="info-block"><span>关键指标</span><p>首页转化率、档案创建率、预约点击率、照护日报查看率、复购意愿。</p></div>
-          </article>
-          <article class="roadmap-card reveal">
-            <span class="phase">第二阶段</span>
-            <h3>社区服务网络</h3>
-            <p><strong>目标：</strong>围绕小区和周边 3 公里，沉淀附近服务者信用和用户复购关系。</p>
-            <div class="info-block"><span>核心功能</span><p>服务者信用分、常用服务者绑定、社区推荐、用户复购提醒。</p></div>
-            <div class="info-block"><span>关键指标</span><p>复购率、服务者响应率、用户评价率、纠纷率、常用服务者绑定率。</p></div>
-          </article>
-          <article class="roadmap-card reveal">
-            <span class="phase">第三阶段</span>
-            <h3>长期健康与照护延伸</h3>
-            <p><strong>目标：</strong>从单次照护延伸到长期照护管理。</p>
-            <div class="info-block"><span>核心功能</span><p>老年宠物照护标签、慢病喂药提醒、健康档案、附近宠物医院信息、保险/保障服务接入。</p></div>
-            <div class="info-block"><span>关键指标</span><p>长期托管用户数、健康档案完善率、老年宠物服务占比、合作服务方数量。</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="summary">
-      <div class="shell">
-        <div class="final-card reveal">
-          <p class="section-kicker">Project Summary</p>
-          <h2>从服务撮合到信任基础设施</h2>
-          <p>邻宠到家将宠物照护从“找一个人接单”升级为“建立一次可信托付”。项目围绕用户洞察、痛点拆解、画像分层、信任闭环、核心功能、流程设计、指标体系和阶段路线图，完整呈现了一个产品经理从问题定义到方案落地的思考过程。</p>
-          <div class="actions" style="justify-content:center;">
-            <a class="button primary" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">查看完整 PRD</a>
-            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养行业机会分析报告.html">查看行业报告</a>
-            <a class="button warm" href="../NeighborPet-Portfolio/dashboard/dist/docs/宠物寄养数字化服务竞品分析报告.html">查看竞品分析</a>
+          <div class="doc-links">
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/docs/prd.html">PRD</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/h5-demo/index.html">Demo</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#dashboard">数据看板</a>
+            <a class="button" href="../NeighborPet-Portfolio/dashboard/dist/index.html#ai">AI 中心</a>
           </div>
-          <div class="boundary">当前作品集中的经营数据、用户案例和 AI 输出均为模拟内容；项目不包含真实登录、支付、后端接口或真实用户数据。</div>
         </div>
       </div>
     </section>
@@ -1409,23 +1315,43 @@
   <button class="back-top" type="button" aria-label="返回顶部">↑</button>
 
   <footer>
-    <div class="shell">© 2026 邻宠到家 Product Portfolio. Designed for product interviews.</div>
+    <div class="shell">© 2026 邻宠到家 Product Portfolio. 示例数据用于展示产品验证思路。</div>
   </footer>
 
   <script>
-    const headerLinks = Array.from(document.querySelectorAll('.nav-links a'));
     const backTop = document.querySelector('.back-top');
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const flowTabs = Array.from(document.querySelectorAll('.flow-tab'));
+    const mockupKicker = document.getElementById('mockupKicker');
+    const mockupTitle = document.getElementById('mockupTitle');
+    const mockupCopy = document.getElementById('mockupCopy');
+    const mockupMeta = document.getElementById('mockupMeta');
+    const mockupImage = document.getElementById('mockupImage');
 
-    function scrollToId(id) {
-      const target = document.getElementById(id);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const flowSteps = [
+      ['Step 01', '创建宠物档案', '记录品种、性格、饮食禁忌和紧急联系人，减少临时交接遗漏。', '结构化交接', '档案创建率', 'center'],
+      ['Step 02', '选择服务类型', '根据日托、寄养、上门喂养和接送进入不同服务链路。', '场景分流', '服务入口点击率', '52% center'],
+      ['Step 03', '查看附近服务者', '按距离、可服务时间和宠物类型匹配附近照护者。', '附近可信', '服务者主页浏览率', '58% center'],
+      ['Step 04', '对比认证/环境/价格', '把真实资料、环境照片、评价和服务边界放到决策前。', '信任判断', '认证查看率', '42% center'],
+      ['Step 05', '服务前确认', '确认注意事项、价格边界、接送方式和异常处理规则。', '风险前置', '确认完成率', 'center'],
+      ['Step 06', '接收照护记录', '通过图文/视频时间线查看喂食、饮水、排便和情绪状态。', '过程可见', '日报打开率', '55% center'],
+      ['Step 07', '异常提醒', '异常状态触发提醒，并保留平台介入和沟通记录。', '异常有保障', '响应时长', '45% center'],
+      ['Step 08', '生成照护日报', '服务结束后自动沉淀关键记录，形成下一次照护依据。', '结果沉淀', '记录上传率', 'center'],
+      ['Step 09', '评价与复购', '评价影响服务者信用分，满意用户可绑定常用服务者。', '信用复利', '复购率', '60% center']
+    ];
+
+    function setFlowStep(index) {
+      const step = flowSteps[index];
+      flowTabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.step === String(index)));
+      mockupKicker.textContent = step[0];
+      mockupTitle.textContent = step[1];
+      mockupCopy.textContent = step[2];
+      mockupMeta.innerHTML = `<div><span>信任动作</span><strong>${step[3]}</strong></div><div><span>核心指标</span><strong>${step[4]}</strong></div>`;
+      mockupImage.style.backgroundPosition = step[5];
     }
 
-    document.querySelectorAll('[data-scroll]').forEach((item) => {
-      item.addEventListener('click', (event) => {
-        event.preventDefault();
-        scrollToId(item.dataset.scroll);
-      });
+    flowTabs.forEach((tab) => {
+      tab.addEventListener('click', () => setFlowStep(Number(tab.dataset.step)));
     });
 
     window.addEventListener('scroll', () => {
@@ -1433,7 +1359,9 @@
       backTop.classList.toggle('visible', window.scrollY > 560);
     }, { passive: true });
 
-    backTop.addEventListener('click', () => scrollToId('overview'));
+    backTop.addEventListener('click', () => {
+      document.getElementById('hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -1442,22 +1370,16 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.14 });
+    }, { threshold: .14 });
 
     document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
 
     const sections = Array.from(document.querySelectorAll('section[id]'));
     const navObserver = new IntersectionObserver((entries) => {
-      const active = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
+      const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!active) return;
-      headerLinks.forEach((link) => {
-        const href = link.getAttribute('href');
-        link.classList.toggle('active', href === '#' + active.target.id);
-      });
-    }, { rootMargin: '-28% 0px -58% 0px', threshold: [0.1, 0.25, 0.45] });
+      navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === '#' + active.target.id));
+    }, { rootMargin: '-28% 0px -58% 0px', threshold: [.1, .25, .45] });
 
     sections.forEach((section) => navObserver.observe(section));
   </script>
